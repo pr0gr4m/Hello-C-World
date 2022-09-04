@@ -50,9 +50,13 @@ C언어는 위와 같이 유구한 역사와 함께 오랜 기간 프로그래�
 * WSL2 설치
 
 우선 다음과 같이 Windows Powershell을 검색하고 우측 마우스를 클릭하여 관리자 권한으로 실행합니다.
-![Powershell]()
+![Powershell](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/1.png?raw=true)
 
 실행된 파워쉘에서 ```wsl --install``` 이라는 명령어를 입력하여 WSL 설치를 수행합니다.
-![WSL]()
+![WSL](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/2.png?raw=true)
 
-설치가 정상적으로 완료되었다면 위 그림과 같은 문구가 나옵니다. 설치 완료 이 후 안내와 재부팅하여 같이 시스템을 다시 시작합니다.
+WSL 설치가 완료되었다면 위 그림과 같은 문구가 나옵니다. 설치 완료 이 후 안내와 재부팅하여 같이 시스템을 다시 시작합니다.
+재부팅 이 후 다음과 같은 화면들이 나오면 정상적으로 시스템에 우분투가 설치되고 있는 것입니다. 시스템에 따라 설치가 완료되는 시간은 다르지만, 대략 30분정도 기다린다고 생각해주시면 됩니다.
+![ubuntu_install](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/3.png?raw=true)
+![ubuntu_setup](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/4.png?raw=true)
+
