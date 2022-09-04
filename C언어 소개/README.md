@@ -111,15 +111,33 @@ vsc가 연동되어 실행이 되었다면 현재 사용자를 신뢰할 것인�
 그리고 나서 wsl 창으로 돌아오면 src 디렉토리 아래에 다음과 같이 vsc에서 작성한 test.txt 파일이 있는 것을 볼 수 있습니다.
 ![vsc_test2](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/22.png?raw=true)  
 참고로 test.txt 파일이 개행 문자로 끝나지 않아서 test라는 텍스트가 출력된 후 바로 옆에 다음 명령줄이 이어서 출력된 것을 볼 수 있습니다. 이는 잘못된 것이 아니고, vsc에서 생성한 파일 마지막에 엔터를 눌러 개행문자를 추가하고 저장하면 좀 더 깔끔한 결과를 볼 수 있으니 참고하시기 바랍니다.
-아무튼 이리하여 wsl에 vsc를 연동하는 것은 성공했습니다. 이제 wsl와 vsc에 C 프로그래밍을 하기 위한 환경을 구성할 차례입니다.
+
+아무튼 이리하여 wsl에 vsc를 연동하는 것은 성공했습니다. 하지만, vsc를 실행하기 위하여 매번 wsl을 실행하고 명령어를 입력하기 위하여 vsc와 wsl 창을 왔다갔다 움직이는 것은 여간 번거로운 일이 아닙니다. 따라서 vsc에서 wsl에 연동하는 확장 프로그램을 설치하여 앞으로는 wsl 창을 열 필요 없이 vsc에서 대부분의 작업을 끝낼 수 있도록 하겠습니다.
+vsc의 좌측 Extensions 탭에서 Remote-WSL을 검색하여 WSL 연동을 위한 확장을 설치해줍니다.  
+![ext_wsl](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/26.png?raw=true)  
+설치가 완료되었다면 vsc를 다시 시작했을 때 그림과 같이 좌측 하단에 Open a Remote Window라는 버튼이 생깁니다. 해당 버튼을 클릭하거나 vsc에서 ```<Ctrl + Shift + P>``` 단축키를 입력하고 New WSL Window를 검색하면 다음과 같은 화면을 볼 수 있습니다.  
+![remote](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/27.png?raw=true)  
+New WSL Window를 클릭하면 좌측 하단에 __WSL:Ubuntu__ 라는 문구가 추가된 vsc 화면을 볼 수 있습니다.  
+![remote_ubuntu](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/28.png?raw=true)  
+여기에서 좌측 Explorer 탭을 누르면 Open Folder라는 버튼을 확인할 수 있는데, 해당 버튼을 누르고 원하는 디렉토리 경로를 지정하여 OK 버튼을 누르면 해당 디렉토리에 연동된 작업 공간을 구성할 수 있습니다.  
+![remote_dir](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/29.png?raw=true)  
+이 전에 만들어뒀던 src 디렉토리를 입력하여 OK 버튼을 눌러줍니다. 그러면 이 후부터는 vsc 홈 화면의 Recent 란에서 wsl에 있는 src 디렉토리를 바로 연동하여 사용할 수 있습니다.
+![remote_home](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/30.png?raw=true)  
+이렇게 __WSL:Ubuntu__ 문구가 보이는 vsc에서는 모든 작업들을 wsl에 연동하여 실행할 수 있습니다. wsl 창에서 수행하던 명령어들도 vsc에 내장되어있는 터미널을 연동하여 수행할 수 있습니다. 그러기 위하여 상단 바에서 ```<Terminal> -> <New Terminal>```를 클릭하거나 ```<Ctrl> + <Shift> + <`>``` 단축키를 입력하여 터미널을 열어줄 수 있습니다. 그러면 해당 터미널에서 여태까지 배웠던 모든 명령어들을 바로 실행할 수 있습니다. 따라서, 앞으로 wsl를 굳이 실행하지 않고도 vsc만 실행하여 작업을 수행할 수 있습니다.  
+![remote_ter](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/31.png?raw=true)  
+
+그러면 이제 마지막으로, vsc에 몇 가지 확장 기능들을 설치하고 C 프로그래밍을 하기 위한 도구들을 터미널에서 설치해주면 모든 작업이 마무리됩니다.
 
 #### C 프로그래밍 환경 구성
 
-C언어로 소스 코드를 작성하고 나면 이를 컴퓨터가 이해할 수 있는 기계어로 변환(번역, translation)해줄 컴파일러가 필요합니다. 또한 소스 코드로 실행 파일을 만드는 빌드 작업을 편하게 자동화시켜 줄 빌드 툴과 프로그램에 오류가 있을 때 오류를 찾아 수정하는 디버거도 사용하는 것이 좋습니다. 이러한 컴파일러와 빌드 툴과 디버거는 wsl에 내장되어있지 않기 때문에 다음과 같은 명령어를 통해 추가로 설치해주도록 하겠습니다.
-```sudo apt install -y gcc make gdb```
-참고로 ```apt``` 는 우분투 등에서 프로그램의 설치 및 삭제를 관리하는 명령어이고, ```sudo```는 명령어를 슈퍼 유저 권한(우선은 관리자 권한과 비슷하다고 생각하시면 됩니다)으로 실행시켜주는 명령어 입니다. ```gcc```는 리눅스에서 자주 사용하는 컴파일러이고, ```make```는 빌드툴이며, ```gdb```는 디버거입니다.  
+C언어로 소스 코드를 작성하고 나면 이를 컴퓨터가 이해할 수 있는 기계어로 변환(번역, translation)해줄 컴파일러가 필요합니다. 또한 소스 코드로 실행 파일을 만드는 빌드 작업을 편하게 자동화시켜 줄 빌드 툴과 프로그램에 오류가 있을 때 오류를 찾아 수정하는 디버거도 사용하는 것이 좋습니다. 이러한 컴파일러 및 빌드 툴과 디버거는 wsl에 내장되어있지 않기 때문에 터미널에서 다음과 같은 두 명령어를 통해 추가로 설치해주도록 하겠습니다.
+```bash
+$ sudo apt update
+$ sudo apt install -y build-essential gdb
+```
+참고로 ```apt``` 는 우분투 등에서 프로그램의 설치 및 삭제를 관리하는 명령어이고, ```sudo```는 명령어를 슈퍼 유저 권한(우선은 관리자 권한과 비슷하다고 생각하시면 됩니다)으로 실행시켜주는 명령어 입니다. ```update```는 설치 가능한 프로그램 패키지 리스트를 최신화하는 명령이며, ```install```는 실제 설치를 위한 명령어 입니다. 그리고  ```build-essential```은 리눅스에서 자주 사용하는 ```gcc``` 컴파일러와 ```make``` 빌드툴 등의 통합 패키지이며, ```gdb```는 디버거입니다.  
 ![gcc](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/23.png?raw=true)  
-설치가 완료된 후 다음과 같이 세 명령어를 입력하면 각 프로그램들의 버전 정보를 볼 수 있습니다.  
+제 환경에는 이미 설치가 되어있었기 때문에 위와 같은 문구가 나오지만, 실제로는 좀 더 긴 설치 문구들이 나올 것입니다. 설치가 완료된 후 다음과 같이 세 명령어를 입력하면 각 프로그램들의 버전 정보를 볼 수 있습니다.  
 ```bash
 $ gcc --version
 $ make --version
@@ -127,4 +145,7 @@ $ gdb --version
 ```
 ![version](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/24.png?raw=true)  
 
-그러면 이제 마지막으로, vsc에 몇 가지 확장 기능들을 설치하고 wsl 터미널에 직접 연결할 수 있도록 연동해주면 모든 작업이 마무리됩니다.
+그러면 이제 마지막으로, vsc에 몇 가지 확장 기능들을 설치하고 wsl 터미널에 직접 연결할 수 있도록 연동해주면 모든 작업이 마무리됩니다. vsc의 좌측 Extensions 탭에서 C를 검색하여 나온 결과 중 다음과 같이 C/C++ Extension Pack을 설치하여 줍시다.  
+![ext](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/25.png?raw=true)  
+
+설치가 완료되었다면 모든 준비가 완료되었습니다. 이제 본격적으로 C언어로 프로그램을 작성하고 
