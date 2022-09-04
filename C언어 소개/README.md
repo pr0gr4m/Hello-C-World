@@ -47,7 +47,7 @@ C언어는 위와 같이 유구한 역사와 함께 오랜 기간 프로그래�
 
 우분투를 데스크탑에 바로 설치하여도 좋지만, 윈도우를 제거하고 우분투를 사용하면 PC 게임을 포함한 대다수의 윈도우용 프로그램을 쓸 수 없거나 사용하기 힘든 상황이 발생합니다. 그렇다고 무작성 새 PC를 하나 더 구매하여 설치하는 것도 현실적으로 쉽지 않습니다. 물론 프로그래밍 공부를 핑계로 부모님께 새로운 컴퓨터 구매를 부탁드리려는 원대한 계획을 가지고 계시다면 그것도 상관 없습니다. 하지만 계획이 언제나 성공하지는 않기 때문에 우리는 대안을 마련해야 합니다. 그리고 여기서는 WSL이 훌륭한 대안책이 되어줄 것입니다. WSL은 Windows Subsystem for Linux의 약자로, 윈도우에 경량화된 리눅스를 내장시켜 리눅스에서 사용하는 실행 파일을 실행할 수 있도록 해주는 서브 시스템이라고 생각하시면 됩니다. 만약 WSL이 싫고 리눅스를 직접 사용하고 싶다면 Vmware Player나 VirtualBox와 같은 가상 머신에 우분투를 설치해도 좋지만, 입문의 편의를 위해 WSL에 Visual Studio Code를 연동하여 사용하겠습니다.
 
-* WSL2 설치
+#### WSL2 설치
 
 우선 다음과 같이 Windows Powershell을 검색하고 우측 마우스를 클릭하여 관리자 권한으로 실행합니다.
 ![Powershell](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/1.png?raw=true)
@@ -56,7 +56,28 @@ C언어는 위와 같이 유구한 역사와 함께 오랜 기간 프로그래�
 ![WSL](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/2.png?raw=true)
 
 WSL 설치가 완료되었다면 위 그림과 같은 문구가 나옵니다. 설치 완료 이 후 안내와 재부팅하여 같이 시스템을 다시 시작합니다.
-재부팅 이 후 다음과 같은 화면들이 나오면 정상적으로 시스템에 우분투가 설치되고 있는 것입니다. 시스템에 따라 설치가 완료되는 시간은 다르지만, 대략 30분정도 기다린다고 생각해주시면 됩니다.
+재부팅 이 후 다음과 같은 화면들이 나오면 정상적으로 시스템에 우분투가 설치되고 있는 것입니다. 시스템에 따라 설치가 완료되는 시간은 다르지만, 대략 20분정도 기다린다고 생각해주시면 됩니다.
 ![ubuntu_install](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/3.png?raw=true)
 ![ubuntu_setup](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/4.png?raw=true)
 
+설치가 완료되었으면 시스템에서 사용할 유저 이름과 패스워드를 입력해야 합니다. 영문자와 숫자를 조합하여 본인이 원하는 이름과 패스워드를 입력하시면 됩니다. 참고로 패스워드는 확인을 위하여 두 번 입력해야 하며, 보안 문제상 입력하더라도 화면에 보이지 않습니다.
+![username](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/5.png?raw=true)
+
+유저 설정이 끝나면 파워쉘과 유사하게 명령어를 입력할 수 있게 됩니다. ```whoami``` 라는 명령어를 입력했을 때 본인이 설정한 유저 이름이 나온다면 정상적으로 설정이 완료된 것입니다.
+![whoami](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/6.png?raw=true)
+
+축하드립니다, 여러분들은 우분투에 성공적으로 입문하셨습니다. 참고로 리눅스에 입문했다고 이야기 하지 않는 이유는, 본인도 모르는 사이 리눅스를 사용해봤을 확률이 높기 때문입니다. 만약 안드로이드 스마트폰을 사용하셨다면 안드로이드 운영체제 또한 리눅스를 기반으로 만들어진 운영체제이기 때문에 이미 리눅스는 충분히 사용하셨습니다.
+리눅스를 포함한 대부분의 UNIX-like 시스템에서는 윈도우와 같이 그래픽 화면에 아이콘 등이 상호작용하며 사용하는 GUI(Graphical User Interface)도 지원하지만 지금 사용한 방법과 같이 검은 창에 명령어를 입력하여 실행하는 CLI(Command Line Interface)를 애용하게 됩니다. 해당 서적이 리눅스를 가르쳐주는 서적은 아니지만, 이 후 사용의 편의를 위하여 앞으로 사용할 몇 가지 명령어들만 간단하게 설명하도록 하겠습니다.
+
+* ```nano``` : ```nano -w hello.txt``` 라는 명령을 입력하면 다음과 같이 새로운 텍스트 파일을 작성할 수 있습니다. nano 외에도 vim이나 emacs와 같은 편집기를 사용할 수도 있지만, 저희는 어차피 이 후에 Visual Studio Code를 연동하여 사용할 것이므로 테스트하기 쉬운 nano 편집기를 임시로 사용해보겠습니다.
+![nano](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/7.png?raw=true)
+nano 명령을 입력하여 새로운 창이 뜨면, 원하는 내용을 입력해줍니다. 입력이 완료되었으면 __Ctrl + X__ 키를 눌러서 입력을 종료할 수 있습니다. 하단 바가 아래 그림과 같이 변경되면 입력한 내용을 저장할지, 버릴지 혹은 종료를 취소할지 선택할 수 있습니다.
+![nano2](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/8.png?raw=true)
+__Y__ 키를 눌러서 입력한 내용을 저장하려고 하면 하단 바가 다시 변경되어 저장할 파일의 이름을 지정해줄 수 있습니다. 여기에서 파일 이름을 다시 지정해줘도 괜찮지만, 처음 nano 명령을 실행할 때 작성할 파일의 이름을 지정해줬으므로 엔터를 치고 넘어가시면 됩니다.
+![nano3](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/9.png?raw=true)
+그러면 다음 그림과 같이 기존의 입력 쉘 화면으로 돌아올 것입니다.
+![nano4](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/10.png?raw=true)
+* ```ls``` : 현재 디렉토리(폴더)에 있는 파일 리스트를 확인하는 명령어 입니다. ```ls```만 단독으로 사용하면 간단한 내용만 보여주며, ```ls -a```라고 a 옵션을 주면 파일 이름이 .(dot)로 시작하는 숨김 파일도 볼 수 있으며, ```ls -l```라고 l 옵션을 주면 상세한 내용을 볼 수 있습니다. 옵션은 ```ls -al```과 같이 조합하여 사용할 수도 있습니다. 해당 명령어를 사용하면 저희가 방금 작성한 ```hello.txt``` 파일이 저장되어 있는 것을 볼 수 있습니다.
+![ls](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/11.png?raw=true)
+* ```cat``` : 파일을 이어 붙여서 출력해주는 명령어입니다. 저희가 방금 생성한 파일에 대해 ```cat hello.txt```와 같이 사용하면 파일에 작성한 내용을 읽어서 출력해줍니다. 참고로 concatenate라는 단어에서 파생된 명령어로, ```cat hello.txt hello2.txt``` 명령과 같이 사용하면 여러 파일을 이어서 출력할 수 있습니다.
+![cat](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/12.png?raw=true)
