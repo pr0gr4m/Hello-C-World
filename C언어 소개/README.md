@@ -70,14 +70,21 @@ WSL 설치가 완료되었다면 위 그림과 같은 문구가 나옵니다. �
 리눅스를 포함한 대부분의 UNIX-like 시스템에서는 윈도우와 같이 그래픽 화면에 아이콘 등이 상호작용하며 사용하는 GUI(Graphical User Interface)도 지원하지만 지금 사용한 방법과 같이 검은 창에 명령어를 입력하여 실행하는 CLI(Command Line Interface)를 애용하게 됩니다. 해당 서적이 리눅스를 가르쳐주는 서적은 아니지만, 이 후 사용의 편의를 위하여 앞으로 사용할 몇 가지 명령어들만 간단하게 설명하도록 하겠습니다.
 
 * ```nano``` : ```nano -w hello.txt``` 라는 명령을 입력하면 다음과 같이 새로운 텍스트 파일을 작성할 수 있습니다. nano 외에도 vim이나 emacs와 같은 편집기를 사용할 수도 있지만, 저희는 어차피 이 후에 Visual Studio Code를 연동하여 사용할 것이므로 테스트하기 쉬운 nano 편집기를 임시로 사용해보겠습니다.  
-![nano](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/7.png?raw=true)
+![nano](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/7.png?raw=true)  
 nano 명령을 입력하여 새로운 창이 뜨면, 원하는 내용을 입력해줍니다. 입력이 완료되었으면 __Ctrl + X__ 키를 눌러서 입력을 종료할 수 있습니다. 하단 바가 아래 그림과 같이 변경되면 입력한 내용을 저장할지, 버릴지 혹은 종료를 취소할지 선택할 수 있습니다.  
-![nano2](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/8.png?raw=true)
+![nano2](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/8.png?raw=true)  
 __Y__ 키를 눌러서 입력한 내용을 저장하려고 하면 하단 바가 다시 변경되어 저장할 파일의 이름을 지정해줄 수 있습니다. 여기에서 파일 이름을 다시 지정해줘도 괜찮지만, 처음 nano 명령을 실행할 때 작성할 파일의 이름을 지정해줬으므로 엔터를 치고 넘어가시면 됩니다.  
-![nano3](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/9.png?raw=true)
+![nano3](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/9.png?raw=true)  
 그러면 다음 그림과 같이 기존의 입력 쉘 화면으로 돌아올 것입니다.  
-![nano4](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/10.png?raw=true)
+![nano4](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/10.png?raw=true)  
 * ```ls``` : 현재 디렉토리(폴더)에 있는 파일 리스트를 확인하는 명령어 입니다. ```ls```만 단독으로 사용하면 간단한 내용만 보여주며, ```ls -a```라고 a 옵션을 주면 파일 이름이 .(dot)로 시작하는 숨김 파일도 볼 수 있으며, ```ls -l```라고 l 옵션을 주면 상세한 내용을 볼 수 있습니다. 옵션은 ```ls -al```과 같이 조합하여 사용할 수도 있습니다. 해당 명령어를 사용하면 저희가 방금 작성한 ```hello.txt``` 파일이 저장되어 있는 것을 볼 수 있습니다.  
-![ls](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/11.png?raw=true)
+![ls](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/11.png?raw=true)  
 * ```cat``` : 파일을 이어 붙여서 출력해주는 명령어입니다. 저희가 방금 생성한 파일에 대해 ```cat hello.txt```와 같이 사용하면 파일에 작성한 내용을 읽어서 출력해줍니다. 참고로 concatenate라는 단어에서 파생된 명령어로, ```cat hello.txt hello2.txt``` 명령과 같이 사용하면 여러 파일을 이어서 출력할 수 있습니다.  
-![cat](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/12.png?raw=true)
+![cat](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/12.png?raw=true)  
+* ```mkdir``` : 새로운 디렉토리(폴더)를 생성하는 명령어 입니다. ```mkdir src```와 같이 사용하면 현재 디렉토리에 src 라는 이름의 하위 디렉토리를 생성할 수 있습니다. 생성 이 후 ```ls``` 명령으로 확인하면 일반 파일과 달리 디렉토리는 다른 색상으로 표시되는 것을 볼 수 있습니다.
+![mkdir](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/13.png?raw=true)  
+* ```cd``` : 현재 자신이 위치하는 디렉토리를 변경하는 명령어 입니다. ```cd src``` 명령으로 방금 전에 생성한 디렉토리로 이동할 수 있습니다. ```cd ..```와 같이 ```..```을 사용하면 한 단계 상위 디렉토리로 이동하며, ```cd /```와 같이 ```/```로 이동하면 시스템의 최상위(루트) 디렉토리로 이동합니다. ```cd /home/pr0gr4m/src```와 같이 최상위 경로부터 시작한 특정 위치의 디렉토리로 한번에 이동할 수도 있습니다. 뿐만 아니라, ```cd```만 단독으로 사용하거나 ```cd ~```와 같이 ```~```를 사용하면 ```/home/<유저이름>```에 해당하는 홈 디렉토리로 바로 이동할 수도 있습니다.
+![cd](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/14.png?raw=true)  
+* ```pwd``` : 현재 자신이 위치한 디렉토리의 경로가 어디인지 출력해주는 명령어 입니다.
+[pwd](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/15.png?raw=true)  
+* ```<Ctrl + L>``` : 명령어는 아니지만 터미널 화면을 정리해주는 단축키 입니다. 위 그림들에서 가끔 이 전 명령어가 보이지 않고 처음부터 새로운 명령어를 사용하는 것처럼 보이는 이유가 해당 단축키를 이용하여 화면을 정리하였기 때문입니다.
