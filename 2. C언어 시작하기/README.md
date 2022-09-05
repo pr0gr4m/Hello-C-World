@@ -4,6 +4,7 @@
 
 1장의 실습 환경 구축에 이어서, 생애 첫 C언어 프로그램을 작성해보도록 하겠습니다. ```hello.txt```나 ```test.txt``` 파일을 생성한 것과 같이, ```hello.c```라는 파일을 생성하여 다음과 같이 입력해줍시다. 참고로 C언어로 작성한 소스 코드의 확장자 명은 ```.c``` 입니다.  
 ```c
+// hello.c
 #include <stdio.h>
 
 int main(void)
@@ -31,3 +32,32 @@ Hello World!
 ```
 
 'Hello World!' 라는 문자열을 출력하는 것을 볼 수 있습니다.
+
+간혹가다가 ```make hello``` 명령어를 입력했을 때 위처럼 ```cc     hello.c   -o hello```가 아닌 다음과 같은 오류가 발생하는 경우가 있습니다.
+```bash
+# 오류 1번
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ make hello
+cc     hello.c   -o hello
+hello.c:1:10: fatal error: studio.h: No such file or directory
+    1 | #include <studio.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+make: *** [<builtin>: hello] Error 1
+
+# 오류 2번
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ make hello
+cc     hello.c   -o hello
+hello.c: In function ‘main’:
+hello.c:5:29: error: expected ‘;’ before ‘return’
+    5 |     printf("Hello World!\n")
+      |                             ^
+      |                             ;
+    6 |     return 0
+      |     ~~~~~~                   
+make: *** [<builtin>: hello] Error 1
+```
+
+오류 1번은 ```<stdio.h>``` 대신에 visual studio에 심취한 나머지 ```<studio.h>``` 라는 오탈자를 입력한 경우이고, 오류 2번은 ```printf("Hello, World!\n")```나 ```return 0``` 다음에 세미콜론 문자 ```;```를 누락한 경우입니다. 그 외에도 정상적인 결과가 나오지 않는 경우는 99.99%의 확률로 오탈자를 입력한 것이니 내용을 유심히 확인하시면 원하는 결과를 볼 수 있을 겁니다.
+
+## Hello World 살펴보기
+
