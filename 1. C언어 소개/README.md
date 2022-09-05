@@ -148,4 +148,4 @@ $ gdb --version
 그러면 이제 마지막으로, vsc에 몇 가지 확장 기능들을 설치하고 wsl 터미널에 직접 연결할 수 있도록 연동해주면 모든 작업이 마무리됩니다. vsc의 좌측 Extensions 탭에서 C를 검색하여 나온 결과 중 다음과 같이 C/C++ Extension Pack을 설치하여 줍시다.  
 ![ext](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/C%EC%96%B8%EC%96%B4%20%EC%86%8C%EA%B0%9C/25.png?raw=true)  
 
-설치가 완료되었다면 모든 준비가 완료되었습니다. 이제 본격적으로 C언어를 배우고 프로그램을 작성해보도록 하겠습니다.
+설치가 완료되었다면 모든 준비가 완료되었습니다. 이제 본격적으로 C언어를 배우고 C 프로그램을 작성해보도록 하겠습니다.
