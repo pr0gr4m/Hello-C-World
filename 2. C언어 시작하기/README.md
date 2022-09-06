@@ -63,18 +63,18 @@ make: *** [<builtin>: hello] Error 1
 
 다짜고짜 외계어를 따라서 입력하고 빌드 명령어를 입력하니 프로그램이 완성되었습니다. 그러면 이 외계어의 의미를 한줄한줄 살펴보도록 하겠습니다.
 
-```// hello.c```
+```// hello.c```  
 주석(comment)으로 해당 파일의 이름을 표기했습니다. 주석은 소스 코드에서 무시되는 메모인데, 바로 다음 챕터에서 더욱 자세하게 설명하도록 하겠습니다.
 
-```#include <stdio.h>```
+```#include <stdio.h>```  
 
 
-```int main(void)```
+```int main(void)```  
 
-```{```
+```{```  
 
-```printf(Hello World!\n");```
+```printf(Hello World!\n");```  
 
-```return 0;```
+```return 0;```  
 
-```}```
+```}```  
