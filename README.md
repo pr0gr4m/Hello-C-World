@@ -11,3 +11,6 @@
     * [Hello World 살펴보기](https://github.com/pr0gr4m/Hello-C-World/tree/main/2.%20C%EC%96%B8%EC%96%B4%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0#hello-world-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0)
     * [C언어의 구성 요소](https://github.com/pr0gr4m/Hello-C-World/tree/main/2.%20C%EC%96%B8%EC%96%B4%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0#c%EC%96%B8%EC%96%B4%EC%9D%98-%EA%B5%AC%EC%84%B1-%EC%9A%94%EC%86%8C)
         + [주석](https://github.com/pr0gr4m/Hello-C-World/tree/main/2.%20C%EC%96%B8%EC%96%B4%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0#%EC%A3%BC%EC%84%9Dcomment)
+    * [main 함수와 printf 함수 맛보기](https://github.com/pr0gr4m/Hello-C-World/tree/main/2.%20C%EC%96%B8%EC%96%B4%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0#main-%ED%95%A8%EC%88%98%EC%99%80-printf-%ED%95%A8%EC%88%98-%EB%A7%9B%EB%B3%B4%EA%B8%B0)
+        + [main 찍어먹기](https://github.com/pr0gr4m/Hello-C-World/tree/main/2.%20C%EC%96%B8%EC%96%B4%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0#main-%EC%B0%8D%EC%96%B4%EB%A8%B9%EA%B8%B0)
+        + [printf 찍어먹기](https://github.com/pr0gr4m/Hello-C-World/tree/main/2.%20C%EC%96%B8%EC%96%B4%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0#printf-%EC%B0%8D%EC%96%B4%EB%A8%B9%EA%B8%B0)
