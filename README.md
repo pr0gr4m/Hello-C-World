@@ -14,3 +14,6 @@
     * [main 함수와 printf 함수 맛보기](https://github.com/pr0gr4m/Hello-C-World/tree/main/2.%20C%EC%96%B8%EC%96%B4%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0#main-%ED%95%A8%EC%88%98%EC%99%80-printf-%ED%95%A8%EC%88%98-%EB%A7%9B%EB%B3%B4%EA%B8%B0)
         + [main 찍어먹기](https://github.com/pr0gr4m/Hello-C-World/tree/main/2.%20C%EC%96%B8%EC%96%B4%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0#main-%EC%B0%8D%EC%96%B4%EB%A8%B9%EA%B8%B0)
         + [printf 찍어먹기](https://github.com/pr0gr4m/Hello-C-World/tree/main/2.%20C%EC%96%B8%EC%96%B4%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0#printf-%EC%B0%8D%EC%96%B4%EB%A8%B9%EA%B8%B0)
+- 변수와 상수
+- 연산자와 식
+- 포맷 입출력
