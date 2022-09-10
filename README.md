@@ -28,3 +28,4 @@
 * _The C Programming Language_ : 브라이언 커닝핸과 데니스 리치가 작성한 C언어 서적입니다. 일부 설명과 ANSI C 제정 이 전 과거 문법에 대한 내용을 언급할 때 1판과 2판을 참고하고 있습니다.  
 * _C Programming: A Modern Approach_ : K.N.King의 C언어 서적입니다. 책의 내용을 구성하는데 전반적으로 해당 서적을 참고하고 있습니다.  
 * _유닉스의 탄생_ : 브라이언 커닝핸이 작성한 유닉스 역사서입니다. C언어의 역사를 작성할 때 해당 서적을 참고하고 있습니다.  
+* _SEI CERT C Coding Standard_ : 카네기 멜론 대학에서 작성한 C 표준 코딩 가이드입니다. 주로 Undefined Bahavior와 Unspecified Behavior에 대한 예시를 작성할 때 참고하고 있습니다.  
