@@ -277,6 +277,18 @@ int main(void)
 
 #### 정수 타입 지정자
 
-|타입 지정자 | 크기 | 범위 |
+우선 ```signed```는 부호가 있는 정수(음수를 표현할 수 있음)를 표현하는데 사용하고, ```unsigned```는 부호가 없는 정수(음수를 표현할 수 없음)를 표현하는데 사용한다는 것을 염두합시다. 조합 가능한 정수 타입들에 대한 설명은 다음과 같습니다.  
+
+* ```char``` : __basic execution character set을 저장할 수 있도록 크기가 보장__ 됩니다. 보통 아스키코드 문자 인코딩을 사용하는 정수값을 통해 문자를 표현할 때 사용합니다. ```signed```나 ```unsigned```와 조합하여 사용하지 않으면 __부호가 있는 타입인지 부호가 없는 타입인지 보장할 수 없습니다.__ (둘 중 어떤 타입이 되더라도 basic execution character set은 저장할 수 있습니다.)
+    * basic execution character set : 알파벳 대문자, 알파벳 소문자, 10개의 숫자 문자에 더해 다음 29개의 특수 문자의 집합; ```! " # % & ' ( ) * + , - . / : ; < = > ? [ \ ] ^ _ { | } ~```
+    * basic execution character set이 아닌 문자를 char에 저장하는 것은 implementation-defined 입니다. 하지만 보통 char 타입이 가질 수 있는 범위 내의 문자 인코딩은 표현 가능합니다.
+* ```signed char``` : ```char```와 동일한 크기를 가지고, ```signed```임을 보장합니다.
+* ```unsigned char``` : ```char```와 동일한 크기를 가지고, ```unsigned```임을 보장합니다.
+* ```short```, ```short int```, ```signed short```, ```signed short int``` : 부호 있는 정수를 표현하는데 사용하며 ```int```보다 작거나 같은 크기임을 보장합니다.
+* ```unsigned short```, ```unsigned short int``` : 부호 없는 정수를 표현하는데 사용하며 ```unsigned int```보다 작거나 같은 크기임을 보장합니다.
+* ```int```, ```signed```, ```signed int``` : 부호 있는 정수를 표현하는데 사용합니다. ```int``` 타입은 특히 __컴퓨터 아키텍처가 연산을 수행하기 가장 좋은 타입__ 입니다.
+* 
+| 타입 지정자 | 크기 | 범위 |
 |:---------:|:---:|:----:|
-| char | basic execution character set을 저장할 수 있도록 보장하는 크기 (보통 1바이트) | CHAR_MIN ~ CHAR_MAX |
+| char | 보통 1바이트 | CHAR_MIN ~ CHAR_MAX |
+| signed char | char와 같음 | SCHAR_MIN ~ SCHAR_MAX |
