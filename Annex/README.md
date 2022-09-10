@@ -161,6 +161,8 @@ Possible undefined behavior ranges from ignoring the situation completely with u
 * 표준c에 포함하는 #pragma 전처리 지시어가 well-defined form이 아닌 경우
 * predefined된 매크로나 식별자가 #define이나 #undef 지시어의 subject인 경우
 * 허용되지 않은 라이브러리 기능을 사용하여 오브젝트를 오버랩되는 오브젝트에 복사 시도 (memmove)
+* 표준 헤더랑 이름 겹치게 파일 사용하여 표준 경로에 위치
+* 헤더가 외부 선언이나 정의 안에 삽입된 경우
 * 
 
 ### Implementation-defined behavior
