@@ -410,7 +410,82 @@ pr0gr4m@DESKTOP-IRB9MN5:~/src$ ./integer_overflow
 -128 
 ```
 
-실로 놀라운 결과이지만 어찌보면 당연한 결과입니다. 
+실로 놀라운 결과이지만 어찌보면 당연한 결과입니다. 기존에 ```num```에는 ```0b01111111```이 저장되어 있었습니다. 여기에 1을 더하면 ```0b10000000```이 됩니다. 그런데 signed char에서 ```0b10000000```는 음수 -128이기 때문에 의도했던 128이 아닌 음수 -128을 출력했습니다. ```out_of_range``` 변수에 저장한 128도 마찬가지로 ```0b10000000```을 해당 변수에 저장했지만, signed char에서 -128로 해석하기 때문에 음수 -128을 출력한 것입니다.  
+이렇게 정수와 관련된 산술 연산에서 표현할 수 있는 수의 범위를 벗어나 의도하지 않은 결과를 만들어 내는 것을 정수 오버플로우(Integer Overflow)라고 합니다.  
+
+그리고 보니 부호가 없는 ```unsigned``` 변수들은 어떻게 될까요? 그리고 표현할 수 있는 가장 작은 수 보다 더 작은 수가 만들어지는 경우는 어떻게 될까요? 이것도 예제로 확인해보도록 하겠습니다.  
+
+```c
+// integer_overflow2.c
+#include <stdio.h>
+#include <limits.h>     // XXX_MIN과 XXX_MAX를 사용하기 위한 헤더 파일
+
+int main(void)
+{
+    unsigned int unum_max = UINT_MAX;   // unsigned int 타입으로 표현할 수 있는 가장 큰 수
+    unsigned int unum_min = 0;          // unsigned int 타입으로 표현할 수 있는 가장 작은 수
+    int num_max = INT_MAX;              // int 타입으로 표현할 수 있는 가장 큰 수
+    int num_min = INT_MIN;              // int 타입으로 표현할 수 있는 가장 작은 수
+    
+    // unsigned int 타입 정수 출력 서식 문자는 %u, unum_max 변경 전 출력
+    printf("[before] unum_max : %u \n", unum_max);
+    // unum_max에 있는 값 1 증가
+    unum_max = unum_max + 1;
+    // unum_max 변경 후 출력
+    printf("[after] unum_max : %u \n", unum_max);
+
+    // unum_min 변경 전 출력
+    printf("[before] unum_min : %u \n", unum_min);
+    // unum_min에 있는 값 1 감소
+    unum_min = unum_min - 1;
+    // unum_min 변경 후 출력
+    printf("[after] unum_min : %u \n", unum_min);
+
+    // num_max 변경 전 출력
+    printf("[before] num_max : %d \n", num_max);
+    // num에 있는 값 1 증가
+    num_max = num_max + 1;
+    // num_max 변경 후 출력
+    printf("[after] num_max : %d \n", num_max);
+
+    // num_min 변경 전 출력
+    printf("[before] num_min: %d \n", num_min);
+    // num에 있는 값 1 감소
+    num_min = num_min - 1;
+    // num_max 변경 후 출력
+    printf("[after] num_min : %d \n", num_min);
+
+    return 0;
+}
+```
+
+이번 예제에서는 ```#include <limits.h>``` 라는 처음 보는 헤더 파일과 ```UINT_MAX```, ```INT_MAX```, ```INT_MIN``` 라는 처음 보는 값을 사용했습니다. (대소문자가 틀리면 안됩니다.)  
+타입 지정자에 대해 설명할 때 각 타입이 갖는 크기가 고정되어 있지 않다고 했습니다. 그러다보니 환경에 따라 특정 타입이 표현할 수 있는 수의 범위가 달라지게 되었습니다. 따라서 어떤 환경에서든지 특정 타입이 가질 수 있는 최대값과 최소값을 ```limits.h``` 라는 헤더 파일에 정의하고 있습니다. 이러한 값은 소스코드를 컴파일 하기 전에(컴퓨터가 해석하고 실행 가능한 기계어로 번역하기 전에) 전처리라는 단계에서 미리 정해진 값으로 치환됩니다. 예를 들어 ```int``` 타입이 4바이트인 시스템인 현재 실습 환경에서 ```INT_MAX```는 2147483647 라는 정수로 치환되고, ```INT_MIN```은 -2147483648으로 치환됩니다. ```int``` 타입이 2바이트인 시스템에서는 ```INT_MAX```가 32767으로 치환되고 ```INT_MIN```이 –32768으로 치환되는 것이죠. 이러한 정수로 표현 가능한 최소값과 최대값은 바로 다음에 표로 정리해두겠습니다. (참고로 부호 없는 타입이 가질 수 있는 최소 값은 공통적으로 0이기 때문에 UINT_MIN과 같은 것은 정의되어 있지 않습니다.)
+
+그럼 이제 예제를 실행해보겠습니다. 결과는 다음과 같습니다.  
+
+```bash
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ make integer_overflow2
+cc     integer_overflow2.c   -o integer_overflow2
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ ./integer_overflow2
+[before] unum_max : 4294967295 
+[after] unum_max : 0 
+[before] unum_min : 0 
+[after] unum_min : 4294967295 
+[before] num_max : 2147483647 
+[after] num_max : -2147483648 
+[before] num_min: -2147483648 
+[after] num_min : 2147483647 
+```
+
+마찬가지로 표현할 수 있는 가장 큰 수에서 1이 증가하면 표현할 수 있는 가장 수가 되었고, 표현할 수 있는 가장 작은 수에서 1이 감소하면 표현할 수 있는 가장 작은 수가 되었습니다. 즉, 부호 없는 정수는 가장 큰 수와 0간의 변경이 일어나고, 부호 있는 정수는 절대값이 가장 큰 양수와 절대값이 가장 큰 음수 간 변경이 일어났습니다.  
+
+정수로 표현할 수 있는 가장 큰 수의 범위보다 커지는 경우 정수 오버플로우라고 했습니다. 그러면 정수로 표현할 수 있는 가장 작은 수의 범위보다 작아진 경우는 뭐라고 할까요? 이 또한 마찬가지로 정수 오버플로우라고 합니다. 정수가 가장 큰 수보다 커지든 가장 작은 수 보다 작아지든 표현할 수 있는 범위를 벗어나는 경우 모두 정수 오버플로우라고 합니다.
+
+> 간혹가다 정수로 표현할 수 있는 갖아 작은 수보다 작아지는 경우 언더플로우라고 설명하는 자료들이 있습니다. 이는 모두 틀린 자료이니 유의하시기 바랍니다. (언더플로우는 실수에서만 일어납니다.)
+
+그러면 ```limits.h``` 헤더 파일에서 제공하는 각 타입별 표현할 수 있는 최소값과 최대값을 정리하고 정수에 대한 이야기를 마무리하겠습니다.  
+
 
 #### 실수 타입 지정자
 
