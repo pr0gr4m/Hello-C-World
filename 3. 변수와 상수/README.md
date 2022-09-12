@@ -489,6 +489,16 @@ pr0gr4m@DESKTOP-IRB9MN5:~/src$ ./integer_overflow2
 | 타입 | 최소값 | 최대값 |
 |:-----:|:-----:|:-----:|
 | ```char``` | ```CHAR_MIN``` | ```CHAR_MAX``` |
+| ```signed char``` | ```SCHAR_MIN``` | ```SCHAR_MAX``` |
+| ```unsigned char``` | ```0``` | ```UCHAR_MAX``` |
+| ```short``` <br> ```signed short``` <br> ```short int``` <br> ```signed short int``` | ```SHRT_MIN``` | ```SHRT_MAX``` |
+| ```unsigned short``` <br> ```unsigned short int``` | ```0``` | ```USHRT_MAX``` |
+| ```int``` <br> ```signed``` <br> ```signed int``` | ```INT_MIN``` | ```INT_MAX``` |
+| ```unsigned``` <br> ```unsigned int``` | ```0``` | ```UINT_MAX``` |
+| ```long``` <br> ```signed long``` <br> ```long int``` <br> ```signed long int``` | ```LONG_MIN``` | ```LONG_MAX``` |
+| ```unsigned long``` <br> ```unsigned long int``` | ```0``` | ```ULONG_MAX``` |
+| ```long long``` <br> ```signed long long``` <br> ```long long int``` <br> ```signed long long int``` | ```LLONG_MIN``` | ```LLONG_MAX``` |
+| ```unsigned long long``` <br> ```unsigned long long int``` | ```0``` | ```ULLONG_MAX``` |
  
 #### 실수 타입 지정자
 
