@@ -14,7 +14,14 @@
     * [main 함수와 printf 함수 맛보기](https://github.com/pr0gr4m/Hello-C-World/tree/main/2.%20C%EC%96%B8%EC%96%B4%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0#main-%ED%95%A8%EC%88%98%EC%99%80-printf-%ED%95%A8%EC%88%98-%EB%A7%9B%EB%B3%B4%EA%B8%B0)
         + [main 찍어먹기](https://github.com/pr0gr4m/Hello-C-World/tree/main/2.%20C%EC%96%B8%EC%96%B4%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0#main-%EC%B0%8D%EC%96%B4%EB%A8%B9%EA%B8%B0)
         + [printf 찍어먹기](https://github.com/pr0gr4m/Hello-C-World/tree/main/2.%20C%EC%96%B8%EC%96%B4%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0#printf-%EC%B0%8D%EC%96%B4%EB%A8%B9%EA%B8%B0)
-- 변수와 상수
+- [변수와 상수](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EB%B3%80%EC%88%98%EC%99%80-%EC%83%81%EC%88%98)
+    * [데이터와 이진수](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%99%80-%EC%9D%B4%EC%A7%84%EC%88%98)
+    * [변수](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EB%B3%80%EC%88%98)
+        + [변수 선언](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EB%B3%80%EC%88%98-%EC%84%A0%EC%96%B8)
+        + [타입 지정자](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%ED%83%80%EC%9E%85-%EC%A7%80%EC%A0%95%EC%9E%90)
+            - [정수 타입 지정자](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%A0%95%EC%88%98-%ED%83%80%EC%9E%85-%EC%A7%80%EC%A0%95%EC%9E%90)
+            - [음의 정수 표현](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%9D%8C%EC%9D%98-%EC%A0%95%EC%88%98-%ED%91%9C%ED%98%84)
+            - [정수 오버플로우](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%A0%95%EC%88%98-%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C%EC%9A%B0)
 - 연산자와 식
 - 포맷 입출력
 
