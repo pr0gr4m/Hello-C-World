@@ -22,6 +22,13 @@
             - [정수 타입 지정자](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%A0%95%EC%88%98-%ED%83%80%EC%9E%85-%EC%A7%80%EC%A0%95%EC%9E%90)
             - [음의 정수 표현](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%9D%8C%EC%9D%98-%EC%A0%95%EC%88%98-%ED%91%9C%ED%98%84)
             - [정수 오버플로우](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%A0%95%EC%88%98-%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C%EC%9A%B0)
+            - [실수 타입 지정자](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%8B%A4%EC%88%98-%ED%83%80%EC%9E%85-%EC%A7%80%EC%A0%95%EC%9E%90)
+            - [실수 표현](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%8B%A4%EC%88%98-%ED%91%9C%ED%98%84)
+        + [변수 작명하기](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EB%B3%80%EC%88%98-%EC%9E%91%EB%AA%85%ED%95%98%EA%B8%B0)
+            - [좋은 식별자 만들기](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%A2%8B%EC%9D%80-%EC%8B%9D%EB%B3%84%EC%9E%90-%EB%A7%8C%EB%93%A4%EA%B8%B0)
+        + [변수 갖고 놀기](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EB%B3%80%EC%88%98-%EA%B0%96%EA%B3%A0-%EB%86%80%EA%B8%B0)
+        + [변수 타입 추론하기](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EB%B3%80%EC%88%98-%ED%83%80%EC%9E%85-%EC%B6%94%EB%A1%A0%ED%95%98%EA%B8%B0)
+    * [상수](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%83%81%EC%88%98)
 - 연산자와 식
 - 포맷 입출력
 
