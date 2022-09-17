@@ -899,7 +899,7 @@ int main(void)
 > 접미사에서는 대소문자 구분을 하지 않는다. ```u```와 ```U```가 같은 의미이며, ```l```와 ```L```이 같은 의미이다. 같은 원리로 ```uL```과 ```Ul```은 같은 의미이다.
 
 | 접미사 | 십진수 (접두사 없음) | 이진수, 팔진수, 십육진수 |
-|:-----:|:-------------------:|:----------------------:|
+|:-----:|:-------------------|:----------------------|
 | <없음> | ```int``` <br> ```long int``` <br> ```long long int``` | ```int``` <br> ```unsigned int``` <br> ```long int``` <br> ```unsigned long int``` <br> ```long long int``` <br> ```unsigned long long int``` |
 | ```u``` | ```unsigned int``` <br> ```unsigned long int``` <br> ```unsigned long long int``` |  ```unsigned int``` <br> ```unsigned long int``` <br> ```unsigned long long int``` |
 | ```l``` | ```long int``` <br> ```long long int``` | ```long int``` <br> ```unsigned long int``` <br> ```long long int``` <br> ```unsigned long long int``` |
