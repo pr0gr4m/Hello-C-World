@@ -29,6 +29,14 @@
         + [변수 갖고 놀기](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EB%B3%80%EC%88%98-%EA%B0%96%EA%B3%A0-%EB%86%80%EA%B8%B0)
         + [변수 타입 추론하기](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EB%B3%80%EC%88%98-%ED%83%80%EC%9E%85-%EC%B6%94%EB%A1%A0%ED%95%98%EA%B8%B0)
     * [상수](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%83%81%EC%88%98)
+        + [상수](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%83%81%EC%88%98constant)
+            - [정수 상수](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%A0%95%EC%88%98-%EC%83%81%EC%88%98)
+            - [실수 상수](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EC%8B%A4%EC%88%98-%EC%83%81%EC%88%98)
+            - [문자 상수](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EB%AC%B8%EC%9E%90-%EC%83%81%EC%88%98)
+            - [미리 정의된 상수](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EB%AF%B8%EB%A6%AC-%EC%A0%95%EC%9D%98%EB%90%9C-%EC%83%81%EC%88%98)
+        + [문자열 리터럴](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4string-literal)
+        + [Const](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#const)
+        + [Constexpr](https://github.com/pr0gr4m/Hello-C-World/tree/main/3.%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98#constexpr)
 - 연산자와 식
 - 포맷 입출력
 
