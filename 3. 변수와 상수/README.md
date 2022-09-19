@@ -989,12 +989,11 @@ C언어에서 문자 상수를 지정하는 방식은 다음과 같다.
 
 ```c
 // character_constant.c
-
-#include <stddef.h>
 #include <stdio.h>
-#include <uchar.h>
+#include <uchar.h>      // char16_t와 char32_t를 위하여 사용
+#include <stddef.h>     // wchar_t를 위하여 사용
  
-int main (void)
+int main(void)
 {
     // 정수 문자 상수 (single byte)
     int ic1 = 'a'; 
@@ -1072,13 +1071,56 @@ pr0gr4m@DESKTOP-IRB9MN5:~/src$ ./character_constant
 | \b | 백스페이스 |
 | \f | 폼 피드(새 페이지) |
 | \n | 라인 피드(개행) |
-| \r | 캐리지 리턴(개행) |
+| \r | 캐리지 리턴 |
 | \t | 수평 탭 |
 | \v | 수직 탭 |
 | \u | UTF-16 코드 지정 |
 | \U | UTF-32 코드 지정 |
 
-이 외에도 기수 표현 이스케이프 시퀀스도 있지만 잘 사용하지는 않는다. 다음 예제를 
+이 외에도 기수 표현 이스케이프 시퀀스도 있지만 잘 사용하지는 않는다. 다음 예제를 통해 이스케이프 시퀀스 동작을 좀 더 자세히 살펴보자.
+
+```c
+// escape_sequence.c
+#include <stdio.h>
+
+int main(void)
+{
+    printf("Ring My Bell \a \n");     // \a는 환경 설정에 따라 비프음이 들리지 않을 수 있음
+    printf("\'Hello World\'\n");
+    printf("\"Hello World\"\n");
+    printf("Hello World\?\n");
+    printf("Back\b\bSlash\n");
+    printf("\f");
+    printf("Hello World1\r\n");
+    printf("Hello World2\v");
+    printf("Hello\tWorld3\n");
+    printf("Hello World4\b\b\n");
+    printf("OK\rHello World5\n");
+    return 0;
+}
+```
+
+실행 결과는 다음과 같다.
+
+```bash
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ ./escape_sequence 
+Ring My Bell  
+'Hello World'
+"Hello World"
+Hello World?
+BaSlash
+
+Hello World1
+Hello World2
+            Hello       World3
+Hello World4
+Hello World5
+```
+
+사용하는 환경에 따라서 동작하는 방식이 달라질 수 있으므로, 실행 결과는 가볍게 살펴보기 바란다.  
+마지막 두 개의 출력은 이해가 잘 되지 않을 수도 있다. 현재 사용하고 있는 터미널에서 ```\b```(백슬래쉬)는 문자를 바로 지우는 것이 아니라 커서를 이 전으로 한 칸씩 옮기는 것이고, ```\r```(캐리지 리턴)은 커서를 해당 라인의 맨 처음으로 옮기는 것으로 생각하면 된다.  
+이스케이프 시퀀스를 개발할 당시 프린터와 같은 출력 기기들이 문자를 출력할 때 포인터의 위치 지정을 위해서 위와 같이 동작하도록 정의하였다. 근대 출력 기기가 등장하는 영화를 보면 개행 시 잉크 포인터가 맨 앞으로 이동한 후 종이가 다음 칸으로 이동하는 것을 볼 수 있다. 이러한 시절에 개행을 정확하게 표현하기 위해서는 ```\r\n```와 같이 이스케이프 시퀀스를 사용해야 했다.  
+현대에는 상황에 맞게 적절히 구분하여 사용하면 되는데, 이는 관련된 과목들에서 좀 더 상세하게 배울 수 있다. (예를 들어 대부분 환경에서 터미널 개행 출력은 ```\n```을 사용하고, HTTP 통신 시 개행 문자는 ```\r\n```을 사용하며, HTTP 헤더와 바디를 구분하기 위한 구분자로 ```\r\n\r\n```을 사용한다. 이러한 것들은 관련된 세부 과목에서 자세히 배우게 될 것이다.)
 
 #### 미리 정의된 상수
 
