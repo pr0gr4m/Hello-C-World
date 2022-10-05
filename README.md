@@ -42,6 +42,9 @@
     * [산술 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EC%82%B0%EC%88%A0-%EC%97%B0%EC%82%B0%EC%9E%90)
     * [대입 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EB%8C%80%EC%9E%85-%EC%97%B0%EC%82%B0%EC%9E%90)
         + [복합 대입 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EB%B3%B5%ED%95%A9-%EB%8C%80%EC%9E%85-%EC%97%B0%EC%82%B0%EC%9E%90)
+    * [증감 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EC%A6%9D%EA%B0%90-%EC%97%B0%EC%82%B0%EC%9E%90)
+    * [관계 연산자와 동등 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EA%B4%80%EA%B3%84-%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80-%EB%8F%99%EB%93%B1-%EC%97%B0%EC%82%B0%EC%9E%90)
+    * [논리 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EB%85%BC%EB%A6%AC-%EC%97%B0%EC%82%B0%EC%9E%90)
 - 포맷 입출력
 
 ---
