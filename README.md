@@ -45,6 +45,12 @@
     * [증감 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EC%A6%9D%EA%B0%90-%EC%97%B0%EC%82%B0%EC%9E%90)
     * [관계 연산자와 동등 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EA%B4%80%EA%B3%84-%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80-%EB%8F%99%EB%93%B1-%EC%97%B0%EC%82%B0%EC%9E%90)
     * [논리 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EB%85%BC%EB%A6%AC-%EC%97%B0%EC%82%B0%EC%9E%90)
+    * [비트 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EB%B9%84%ED%8A%B8-%EC%97%B0%EC%82%B0%EC%9E%90)
+        + [비트 NOT 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EB%B9%84%ED%8A%B8-not-%EC%97%B0%EC%82%B0%EC%9E%90)
+        + [비트 쉬프트 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EB%B9%84%ED%8A%B8-%EC%89%AC%ED%94%84%ED%8A%B8-%EC%97%B0%EC%82%B0%EC%9E%90)
+        + [비트 AND 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EB%B9%84%ED%8A%B8-and-%EC%97%B0%EC%82%B0%EC%9E%90)
+        + [비트 OR 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EB%B9%84%ED%8A%B8-or-%EC%97%B0%EC%82%B0%EC%9E%90)
+        + [비트 XOR 연산자](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EB%B9%84%ED%8A%B8-xor-%EC%97%B0%EC%82%B0%EC%9E%90)
 - 포맷 입출력
 
 ---
