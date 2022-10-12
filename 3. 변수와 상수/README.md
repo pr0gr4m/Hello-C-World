@@ -1011,6 +1011,8 @@ int main(void)
     printf("'ab': %x\n", ic2);
     int ic3 = '얍';
     printf("'얍': %x\n\n", ic3);
+
+    // 하단에서 출력에 사용하는 특수 문자들(베타, 비행기)은 원하는 특수 문자로 변경해도 무관함
  
     // UTF-16 문자 상수
     char16_t uc1 = u'a'; 
