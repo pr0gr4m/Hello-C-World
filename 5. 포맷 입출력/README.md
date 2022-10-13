@@ -39,7 +39,6 @@ printf("f * f : %f\n", f * f);
 | u | ```unsigned int``` | 부호 없는 십진수 |
 | x | ```unsigned int``` | 부호 없는 십육진수 소문자 출력 |
 | X | ```unsigned int``` | 부호 없는 십육진수 대문자 출력 |
-| f | ```double``` | 
 
 ## scanf 함수
 
