@@ -66,6 +66,8 @@
         + [변환 지정자](https://github.com/pr0gr4m/Hello-C-World/tree/main/5.%20%ED%8F%AC%EB%A7%B7%20%EC%9E%85%EC%B6%9C%EB%A0%A5#%EB%B3%80%ED%99%98-%EC%A7%80%EC%A0%95%EC%9E%90)
     * [scanf 함수](https://github.com/pr0gr4m/Hello-C-World/tree/main/5.%20%ED%8F%AC%EB%A7%B7%20%EC%9E%85%EC%B6%9C%EB%A0%A5#scanf-%ED%95%A8%EC%88%98)
     * [그 외](https://github.com/pr0gr4m/Hello-C-World/tree/main/5.%20%ED%8F%AC%EB%A7%B7%20%EC%9E%85%EC%B6%9C%EB%A0%A5#%EA%B7%B8-%EC%99%B8) 
+- 선택문
+- 반복문
 
 ---
 
