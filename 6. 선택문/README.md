@@ -315,3 +315,121 @@ pr0gr4m@DESKTOP-IRB9MN5:~/src$ ./if_basic
 
 ## if else 문
 
+기존에 if 문에서 식이 참이라면 문장을 실행했다. 하지만 현실에 있는 요구 사항 중에는 '조건이 참이라면 A를 하자'에서 끝나지 않고, '조건이 참이라면 A를 하고 거짓이라면 B를 하자' 의 경우도 비일비재하다. 이런 경우를 위해 if문에 조합하여 사용할 수 있는 else문이 있다. if else문의 형태는 다음과 같다.  
+
+```c
+if (expression)
+    statement
+else
+    statement
+```  
+
+식과 문장은 이 전 절에서 학습한 것과 다를 바가 없다. 그저 if 문 다음에 ```else``` 라는 키워드가 따라 붙고 그 후에 식이 거짓이라면 실행할 문장이 따라올 뿐이다. 사용 예시는 다음과 같다.  
+
+```c
+if (num1 > num2)
+    max = num1;
+else
+    max = num2;
+```  
+
+변수 num1이 num2보다 크다면 max에 num1 값을 저장하고, 아니라면 max에 num2 값을 저장하고 있다. 이렇게 두 변수 중 더 큰 값을 찾을 수 있다.  
+물론 statement에는 다음과 같이 복합문이 올 수 있다. 아래 예시는 위의 예시와 완전히 같다.  
+
+```c
+if (num1 > num2) {
+    max = num1;
+} else {
+    max = num2;
+}
+```  
+
+else 문은 if 문에 종속된 문법이므로 단독으로 사용할 수 없고 항상 if 문과 함께 사용해야 한다는 것만 주의하자. 그래서 이번 장의 소제목도 else 문이 아닌 if else 문이다.  
+
+그러면 이를 응용하여 세 변수 중 가장 큰 값을 찾으려면 어떻게 해야할까? 한 번 생각해본 후, 다음 예제를 통해 알아보자.
+
+```c
+// maxval_in_three.c
+#include <stdio.h>
+
+int main(void)
+{
+    int num1, num2, num3;
+    int max;
+
+    printf("세 정수를 입력하세요 : ");
+    scanf("%d %d %d", &num1, &num2, &num3);
+
+    if (num1 > num2) {
+        // num1이 num2보다 크므로 num2는 후보 탈락
+        if (num1 > num3) {
+            max = num1;
+        } else {
+            max = num3;
+        }
+    } else {
+        // num1이 num2보다 작거나 같으므로 num1은 후보 탈락해도 됨
+        if (num2 > num3) {
+            max = num2;
+        } else {
+            max = num3;
+        }
+    }
+
+    printf("가장 큰 값은 %d 입니다.\n", max);
+    return 0;
+}
+```  
+
+실행 결과는 다음과 같다.  
+
+```bash
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ make maxval_in_three
+cc     maxval_in_three.c   -o maxval_in_three
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ ./maxval_in_three 
+세 정수를 입력하세요 : 8 3 5
+가장 큰 값은 8 입니다.
+```  
+
+### 중첩 if else 문
+
+if 문에 대한 기본적인 문법은 위의 내용이 전부다. 이를 잘 조합하면 원하는 조건들을 중첩시킬 수 있다.  
+선택문도 문장 중 하나이며, if문과 if else문은 선택문 중 하나이다.  
+따라서 if 문에서 문장이 오는 곳에 다시 if 문이 올 수 있다. ```if (expression) statement``` 혹은 ```if (expression) statement else statement```가 통째로 하나의 문장이므로, statement가 오는 곳에 if문을 다시 넣으면 중첩된 if문을 만들 수 있다.  
+if else 문도 마찬가지이며, if문과 if else문을 섞어서 중첩할 수도 있다.  
+
+```c
+// if 중첩
+if (expression)
+    if (expression)
+        statement
+
+// if문의 statement에 if else문 사용
+if (expression)
+    if (expression)
+        statement
+    else
+        statement
+
+// if else 중첩
+if (expression)
+    if (expression)
+        statement
+    else
+        statement
+else
+    if (expression)
+        statement
+    else
+        statement
+
+// if else 문의 else 문에만 if else문 중첩
+if (expression)
+    statement
+else
+    if (expression)
+        statement
+    else
+        statement
+```  
+

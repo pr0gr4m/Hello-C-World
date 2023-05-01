@@ -672,6 +672,9 @@ int main(void)
     int foo_bar;    // 알파벳과 언더바로 이루어진 변수
     int hello_world;    // 스페이스바 대신 언더바를 사용한 변수
     int var1, var2; // 알파벳과 숫자로 이루어진 변수
+
+    /* 구분되지 않는 식별자 */
+    int foo, bar;   // 식별자 이름 foo와 bar가 같은 범위 내에서 이미 사용되었음
     
     /* 비정상적인 식별자들 */
     int 6to9;       // 숫자로 시작할 수 없음
