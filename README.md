@@ -70,6 +70,9 @@
     * [if 문](https://github.com/pr0gr4m/Hello-C-World/tree/main/6.%20%EC%84%A0%ED%83%9D%EB%AC%B8#if-%EB%AC%B8)
         + [제어 식](https://github.com/pr0gr4m/Hello-C-World/tree/main/6.%20%EC%84%A0%ED%83%9D%EB%AC%B8#%EC%A0%9C%EC%96%B4-%EC%8B%9D)
     * [복합문](https://github.com/pr0gr4m/Hello-C-World/tree/main/6.%20%EC%84%A0%ED%83%9D%EB%AC%B8#%EB%B3%B5%ED%95%A9%EB%AC%B8compound-statement)
+    * [if else 문](https://github.com/pr0gr4m/Hello-C-World/tree/main/6.%20%EC%84%A0%ED%83%9D%EB%AC%B8#if-else-%EB%AC%B8)
+        + [중첩 if else 문](https://github.com/pr0gr4m/Hello-C-World/tree/main/6.%20%EC%84%A0%ED%83%9D%EB%AC%B8#%EC%A4%91%EC%B2%A9-if-else-%EB%AC%B8)
+    * [switch 문](https://github.com/pr0gr4m/Hello-C-World/tree/main/6.%20%EC%84%A0%ED%83%9D%EB%AC%B8#switch-%EB%AC%B8)
 - 반복문
 
 ---
