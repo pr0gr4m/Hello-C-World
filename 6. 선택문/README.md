@@ -591,3 +591,83 @@ Quiz. ~가 아니라면? 조건
 
 ## switch 문
 
+if else 문을 통해 여러 조건을 순차적으로 나열할 수 있다는 것을 학습했다. 하지만 이런 조건이 늘어날수록 if else 문은 가독성이 점점 나빠질 수 있다. 예를 들어 점수가 0점부터 5점까지 있을 때 5점은 A, 4점은 B, 3점은 C와 같이 출력하는 상황을 if else 문을 통해 표현해보면 다음과 같다.  
+
+```c
+if (score == 5) {
+    printf("A");
+} else if (score == 4) {
+    printf("B");
+} else if (score == 3) {
+    printf("C");
+} else if (score == 2) {
+    printf("D");
+} else if (score == 1) {
+    printf("E");
+} else if (score == 0) {
+    printf("F");
+} else {
+    printf("?");
+}
+```  
+
+매 조건마다 동등 연산자와 복합문을 위한 괄호를 쓰는 수고로움이 있었다. 위와 같은 상황에서 다음과 같이 switch 문을 이용하여 같은 효과를 볼 수 있다.  
+
+```c
+switch (score) {
+    case 5:
+        printf("A");
+        break;
+    case 4:
+        printf("B");
+        break;
+    case 3:
+        printf("C");
+        break;
+    case 2:
+        printf("D");
+        break;
+    case 1:
+        printf("E");
+        break;
+    case 0:
+        printf("F");
+        break;
+    default:
+        printf("?");
+}
+```  
+
+```break;``` 라는 문장의 반복 때문에 라인 수는 늘어났으나, 동등 연산자와 복합문의 반복 사용이 사라져서 구조적으로 읽기가 편해졌다. 위의 switch 문이 실행되면 변수 score에 있는 값을 평가하여, 해당 값과 같은 정수 값을 갖는 case 레이블로 이동하여 해당 위치부터 문장을 아래로 내려가며 실행한다.  
+
+switch 문은 이렇게 어떠한 식의 평가 값을 다수의 값과 비교하여 동등한 지점으로 이동하기 위하여 주로 사용한다. switch 문의 문법 형태는 다음과 같다.  
+
+```c
+switch (expression)
+    statement
+```  
+
+> if문과 마찬가지로 C23부터는 ```switch (expression) secondary-block``` 의 형태로 정의하지만, ```secondary-block```이 ```statement```와 동치이므로 위와 같은 형태를 갖는다.  
+
+단순히 문법적인 형태는 위와 같이 굉장히 간단하다. 하지만 실질적으로는 case 문과 default 문이라는 레이블 문과 항상 함께 사용하며, break 문이라는 점프문과도 대부분 조합하여 사용한다. 따라서 대부분 다음과 같은 형태를 갖는다.  
+
+```c
+switch (expression) {
+    attribute-specifier-sequence(opt) case constant-expression:
+        statements
+    ...
+    attribute-specifier-sequence(opt) case constant-expression:
+        statements
+    attribute-specifier-sequence(opt) default:
+        statements
+}
+```  
+
+각 요소들은 다음과 같다. 
+
+* ```expression``` : 제어 식(controlling expression)이라고도 하며, 해당 식의 평가 값과 case 문에 있는 식의 값을 비교하게 된다. switch 문의 제어식에는 특별한 제한이 있는데, 평가 값이 정수 타입이어야 한다. 이 전 챕터들에서 학습한 바와 같이 문자는 정수로 취급하므로 상관 없지만, 해당 식의 결과가 실수여서는 안 된다.
+* ```attribute-specifier-sequence(opt)``` : 속성 부여를 위한 요소이다. 해당 요소는 생략할 수 있으며, 자세한 설명은 책의 후반부에서 설명할 예정이므로 지금은 무시하자.
+* ```case constant-expression:``` : case 문은 레이블 문의 일종으로, constant-expression의 평가 값인 정수 값을 레이블로 갖는다. 레이블은 코드의 특정 위치를 나타내기 위한 표기점으로, 자체적으로 특정한 명령어를 실행하기 위한 코드가 아니다. 명령어들이 실행되다가 어떠한 레이블로 이동하여라 라는 명령어를 만나면 해당 위치로 이동하여 명령어를 실행하기 위한 표지판같은 존재이다. 즉, case문은 switch 문에서 제어 식을 평가하고 그 결과 값과 일치하는 레이블로 이동(점프)하기 위하여 사용한다. constant-expression은 4장에서 학습했던 상수 식으로, case 문에서는 정수 상수 식(integer constant expression)만 올 수 있다. 하나의 switch 문 내에서 같은 상수 값을 갖는 case 레이블이 여러 개 존재할 수 없다. 
+* ```default:``` : default 문 또한 레이블 문의 일종으로, 제어 식의 평가 값과 일치하는 case 문이 없는 경우 이동할 레이블이다. 
+* ```statements``` : 각 레이블문 이후에는 여러 개의 문장들이 올 수 있다. 복합문으로 묶지 않아도 여러 문장들을 나열할 수 있다. 문장들 중 break 문을 사용하면 switch 문을 빠져나가게 되는데, 레이블의 마지막 문장으로 자주 사용한다.
+
