@@ -61,6 +61,7 @@
         + [연산자 우선순위](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EC%97%B0%EC%82%B0%EC%9E%90-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84)
         + [하위 식 평가](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%ED%95%98%EC%9C%84-%EC%8B%9D-%ED%8F%89%EA%B0%80)
     * [식 문장과 널 문장](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EC%8B%9D-%EB%AC%B8%EC%9E%A5%EA%B3%BC-%EB%84%90-%EB%AC%B8%EC%9E%A5)
+    * [상수 식](https://github.com/pr0gr4m/Hello-C-World/tree/main/4.%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%EC%8B%9D#%EC%83%81%EC%88%98-%EC%8B%9D)
 - [포맷 입출력](https://github.com/pr0gr4m/Hello-C-World/tree/main/5.%20%ED%8F%AC%EB%A7%B7%20%EC%9E%85%EC%B6%9C%EB%A0%A5#%ED%8F%AC%EB%A7%B7-%EC%9E%85%EC%B6%9C%EB%A0%A5)
     * [printf 함수](https://github.com/pr0gr4m/Hello-C-World/tree/main/5.%20%ED%8F%AC%EB%A7%B7%20%EC%9E%85%EC%B6%9C%EB%A0%A5#printf-%ED%95%A8%EC%88%98)
         + [변환 지정자](https://github.com/pr0gr4m/Hello-C-World/tree/main/5.%20%ED%8F%AC%EB%A7%B7%20%EC%9E%85%EC%B6%9C%EB%A0%A5#%EB%B3%80%ED%99%98-%EC%A7%80%EC%A0%95%EC%9E%90)
