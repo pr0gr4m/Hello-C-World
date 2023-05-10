@@ -1,6 +1,6 @@
 # 선택문
 
-문장(statement)은 C언어에서 식과 함께 가장 중요한 요소 중 하나이다. 문장의 종류는 크게 선택문(selection statements), 반복문(iteration statements), 식문장(expression statement), 널문장(null statements), 점프문(jump statements), 레이블문(labeled statements), 복합문(compound statements)이 있는데 식문장과 널문장은 챕터 4에서 이미 살펴보았다. 반복문의 흐름 제어에서 주로 사용되는 점프문은 다음 챕터에서 살펴보고, 나머지 문장들에 대해서는 해당 챕터에서 살펴보겠다.  
+문장(statement)은 C언어에서 식과 함께 가장 중요한 요소 중 하나이다. 문장의 종류는 크게 선택문(selection statements), 반복문(iteration statements), 식문장(expression statements), 널문장(null statements), 점프문(jump statements), 레이블문(labeled statements), 복합문(compound statements)이 있는데 식문장과 널문장은 챕터 4에서 이미 살펴보았다. 반복문의 흐름 제어에서 주로 사용되는 점프문은 다음 챕터에서 살펴보고, 나머지 문장들에 대해서는 해당 챕터에서 살펴보겠다.  
 참고로 이런 제어문이나 함수 호출 등을 이용해서 프로그램에서 실행되는 구문이나 명령어 등이 호출되는 순서의 흐름을 제어하는 것을 제어 흐름(control flow)라고 한다. 솔직히 이 전까지의 내용은 매우 지루한 문법 학습의 연속이었을 것이다. 하지만 제어 흐름부터는 프로그래밍의 매력을 조금씩 느낄 수 있을 것이니 여기까지 포기하지 않고 달려온 독자분들에게 심심찮은 감사와 격려를 전하고 싶다.  
 
 ## if 문
@@ -772,3 +772,5 @@ if_grade.c 예제를 switch 문을 사용하도록 변경
 > 중요하지 않은 이야기이지만 switch 문의 문법 정의는 ```switch (expression) statement``` 이므로 ```switch (a) case 1: printf("1");``` 와 같이 쓸 수도 있고, ```switch (a) printf("a");``` 와 같이 쓸 수도 있다. 하지만 문법적으로 가능하다고 하더라도, 실질적으로 이렇게 사용하지는 않는다.  
 
 > switch 문의 레이블 밖에서는 변수 선언도 가능하다. 예를 들어 ```switch (a) { int i = 3; case 0: printf("%d", i); }```와 같은 문장이 문법적으로는 허용된다. 하지만 이는 미정의 행위를 유발하는 심각한 문제를 일으킬 수 있다. switch 문의 모든 로직은 레이블 안에 포함하도록 하자.  
+
+> 동일한 조건에서의 if else 문과 switch 문의 성능 차이가 궁금할 수도 있다. 간혹가다가 if else 문은 직접 분기로 구현하고, switch 문은 간접 분기로 구현하기 때문에 조건의 수가 적을 때는 (보통 네개 이하) if else 문이 유리하고, 조건의 수가 많을 때는 (보통 다섯개 이상) switch 문이 유리하다 라는 이야기를 볼 수 있다. (참고로 직접 분기와 간접 분기가 무엇인지는 지금 이해하지 않아도 괜찮다.) 하지만 현재는 모든 컴파일러가 조건 식의 형태와 분기 조건 갯수를 보고 알아서 최적화를 수행하기 때문에 동일한 조건이라면 if else 문과 switch 문이 동일한 명령어를 만들어내어 같은 성능을 낸다. 따라서, if else문과 switch 문 중에 어느 것을 선택할 것인지는 조건 상황에 따른 코드 가독성을 고려하는 것이 좋다. 
