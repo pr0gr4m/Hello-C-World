@@ -75,6 +75,8 @@
         + [중첩 if else 문](https://github.com/pr0gr4m/Hello-C-World/tree/main/6.%20%EC%84%A0%ED%83%9D%EB%AC%B8#%EC%A4%91%EC%B2%A9-if-else-%EB%AC%B8)
     * [switch 문](https://github.com/pr0gr4m/Hello-C-World/tree/main/6.%20%EC%84%A0%ED%83%9D%EB%AC%B8#switch-%EB%AC%B8)
 - 반복문
+    * [while 문](https://github.com/pr0gr4m/Hello-C-World/tree/main/7.%20%EB%B0%98%EB%B3%B5%EB%AC%B8#while%EB%AC%B8)
+    * [do while 문](https://github.com/pr0gr4m/Hello-C-World/tree/main/7.%20%EB%B0%98%EB%B3%B5%EB%AC%B8#do-while-%EB%AC%B8)
 
 ---
 
