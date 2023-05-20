@@ -671,7 +671,31 @@ switch (expression) {
 * ```default:``` : default 문 또한 레이블 문의 일종으로, 제어 식의 평가 값과 일치하는 case 문이 없는 경우 이동할 레이블이다. 
 * ```statements``` : 각 레이블문 이후에는 0개 이상의 문장들이 올 수 있다. 복합문으로 묶지 않아도 여러 문장들을 나열할 수 있다. 문장들 중 break 문을 사용하면 switch 문을 빠져나가게 되는데, 레이블의 마지막 문장으로 자주 사용한다.  
 
-참고로 switch문의 레이블 내에서는 선언이 아닌 문장만 올 수 있다. 따라서, 레이블 내에서 새로운 변수를 선언하여 사용하고 싶다면 복합문을 사용해야 한다.  
+참고로 switch문의 레이블의 첫 번째 라인에는 선언이 아닌 문장만 올 수 있다. 따라서, 레이블 내에서 새로운 변수를 선언하여 사용하고 싶다면 복합문을 사용하거나 첫 번째 문장 이 후에 선언해야 한다. (이 경우 복합문을 사용하는 것을 지향하는 것이 좋다.) 예를 들어 다음과 같다.  
+
+```c
+switch (a) {
+    case 1:
+        int i = 1;  // 불가능!!
+        printf("%d\n", i);  // 에러!!
+        break;
+
+    case 2:
+    {
+        int i = 2;  // 가능
+        printf("%d\n", i);
+        break;
+    }
+
+    case 3:
+        printf("OK\n");
+        int i = 3;  // 가능하지만 권장하지 않음
+        printf("%d\n", i);
+        break;
+}
+```  
+
+> 사실 switch 레이블문의 정확한 문법 표현은 ```attribute-specifier-sequence(opt) case constant-expression: statements```이 아닌 ```attribute-specifier-sequence(opt) case constant-expression: statement```이다. 그저 레이블이 표시된 문장으로 점프만 하고 나면, 그 다음부터는 다시 선언이 오든 문장이 오든 상관 없다. 단지 이해의 편의를 위해 위와 같이 표현했을 뿐이다.  
 
 switch 문의 동작 방식은 다음과 같다.  
 
