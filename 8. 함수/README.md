@@ -86,6 +86,9 @@ int main(void)
 이 전 챕터에서 똑같은 코드를 여러 번 반복해서 나열하는 것이 싫어서 반복문을 학습했다. 그러면 위의 코드도 반복문으로 바꾸면 될까? 이중 반복문을 사용해서 중복 코드를 줄일 수도 있기야 하겠지만, 이러한 상황에서는 함수를 사용하면 다음과 같이 훨씬 깔끔하게 코드를 정리할 수 있다.  
 
 ```c
+// accumulation_sum.c
+#include <stdio.h>
+
 int accumulation(int n)     // 1부터 N까지의 합을 계산하는 함수를 정의
 {
     int sum = 0;
@@ -97,7 +100,7 @@ int accumulation(int n)     // 1부터 N까지의 합을 계산하는 함수를 
 
 int main(void)
 {
-    int n, m, sum, sum1 = 0, sum2 = 0;
+    int n, m, sum, sum1, sum2;
     printf("자연수 N, M을 입력하세요 : ");
     scanf("%d %d", &n, &m);
     sum1 = accumulation(n);     // 함수를 호출하고 결과 값을 저장
@@ -106,6 +109,16 @@ int main(void)
     printf("합의 합 : %d\n", sum);
     return 0;
 }
+```  
+
+실행 결과는 다음과 같다.  
+
+```bash
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ make accumulation_sum
+cc     accumulation_sum.c   -o accumulation_sum
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ ./accumulation_sum 
+자연수 N, M을 입력하세요 : 5 7 
+합의 합 : 43
 ```  
 
 한 번 정의한 함수를 여러 번 호출하여 반복되는 코드를 단숨에 줄일 수 있었다. 함수는 이렇게 한 번 잘 정의하면 원하는 곳에서 여러 번 사용할 수 있기 때문에 재사용성(reusability)할 수 있다고 한다.  
@@ -121,3 +134,37 @@ int main(void)
 함수에는 이렇게 많은 장점이 있기 때문에 이번 챕터의 서두에서 이야기한 것과 같이 컴퓨터 연구가들은 서브 루틴 명령어를 지원하도록 매달렸던 것이다. 이만 함수의 필요성과 대략적인 형태를 확인하였으니 본격적인 요소들에 대해 학습해보자.  
 
 ## 함수 정의하기
+
+함수를 정의하기 위한 문법적인 형태는 다음과 같다.  
+
+```c
+attribute-specifier-sequence(opt) declaration-specifiers declarator function-body
+```  
+
+당연하지만 위의 내용만 보고는 무슨 말인지 알 수 없다. 여기서 function-body는 compound statement이고, declarator는 무엇이고, declaration-specifiers는 무엇이고, ... 와 같이 설명을 할 수도 있겠지만 혼란만 초래할 것이다. 위 형태를 알아보기 쉽게 일반화하면 다음과 같이 표현할 수 있다.  
+
+```c
+return-type function-name(parameter-type-list)
+compound-statement
+```  
+
+훨씬 나아졌지만 아직도 조금 복잡해 보인다. 한국어를 사용하고 조금 더 쉽게 표현하면 다음과 같다.  
+
+```c
+반환타입 함수이름(파라미터리스트)
+{
+    선언들과 문장들
+}
+```  
+
+이제 어디서 많이 본 것 같다. 반환 타입이 ```int```, 함수 이름이 ```main```, 파라미터 리스트가 ```void```, 문장이 ```return 0;``` 이면 어떻게 될까?  
+
+```c
+int main(void)
+{
+    return 0;
+}
+```  
+
+너무나도 익숙한 main 함수가 탄생했다.  
+함수는 이렇게 '반환 타입', '함수 이름', '파라미터 리스트', '함수 몸체'로 구성된다.  
