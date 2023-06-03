@@ -86,6 +86,19 @@
         + [break 문](https://github.com/pr0gr4m/Hello-C-World/tree/main/7.%20%EB%B0%98%EB%B3%B5%EB%AC%B8#break%EB%AC%B8)
         + [return 문](https://github.com/pr0gr4m/Hello-C-World/tree/main/7.%20%EB%B0%98%EB%B3%B5%EB%AC%B8#return%EB%AC%B8)
     * [반복문 응용하기](https://github.com/pr0gr4m/Hello-C-World/tree/main/7.%20%EB%B0%98%EB%B3%B5%EB%AC%B8#%EB%B0%98%EB%B3%B5%EB%AC%B8-%EC%9D%91%EC%9A%A9%ED%95%98%EA%B8%B0)
+- [함수](https://github.com/pr0gr4m/Hello-C-World/tree/main/8.%20%ED%95%A8%EC%88%98#%ED%95%A8%EC%88%98)
+    * [함수 체험하기](https://github.com/pr0gr4m/Hello-C-World/tree/main/8.%20%ED%95%A8%EC%88%98#%ED%95%A8%EC%88%98-%EC%B2%B4%ED%97%98%ED%95%98%EA%B8%B0)
+    * [함수 정의하기](https://github.com/pr0gr4m/Hello-C-World/tree/main/8.%20%ED%95%A8%EC%88%98#%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98%ED%95%98%EA%B8%B0)
+    * [함수 선언하기](https://github.com/pr0gr4m/Hello-C-World/tree/main/8.%20%ED%95%A8%EC%88%98#%ED%95%A8%EC%88%98-%EC%84%A0%EC%96%B8%ED%95%98%EA%B8%B0)
+        + [함수 프로토타입](https://github.com/pr0gr4m/Hello-C-World/tree/main/8.%20%ED%95%A8%EC%88%98#%ED%95%A8%EC%88%98-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85)
+    * [변수의 범위](https://github.com/pr0gr4m/Hello-C-World/tree/main/8.%20%ED%95%A8%EC%88%98#%EB%B3%80%EC%88%98%EC%9D%98-%EB%B2%94%EC%9C%84)
+    * [함수의 인자](https://github.com/pr0gr4m/Hello-C-World/tree/main/8.%20%ED%95%A8%EC%88%98#%ED%95%A8%EC%88%98%EC%9D%98-%EC%9D%B8%EC%9E%90)
+        + [함수 인자 형변환](https://github.com/pr0gr4m/Hello-C-World/tree/main/8.%20%ED%95%A8%EC%88%98#%ED%95%A8%EC%88%98-%EC%9D%B8%EC%9E%90-%ED%98%95%EB%B3%80%ED%99%98)
+    * [함수의 종료](https://github.com/pr0gr4m/Hello-C-World/tree/main/8.%20%ED%95%A8%EC%88%98#%ED%95%A8%EC%88%98%EC%9D%98-%EC%A2%85%EB%A3%8C)
+        + [프로그램의 종료](https://github.com/pr0gr4m/Hello-C-World/tree/main/8.%20%ED%95%A8%EC%88%98#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%A2%85%EB%A3%8C)
+    * [좋은 함수 만들기](https://github.com/pr0gr4m/Hello-C-World/tree/main/8.%20%ED%95%A8%EC%88%98#%EC%A2%8B%EC%9D%80-%ED%95%A8%EC%88%98-%EB%A7%8C%EB%93%A4%EA%B8%B0)
+    * [함수 호출 메커니즘](https://github.com/pr0gr4m/Hello-C-World/tree/main/8.%20%ED%95%A8%EC%88%98#%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98)
+    * [재귀 함수](https://github.com/pr0gr4m/Hello-C-World/tree/main/8.%20%ED%95%A8%EC%88%98#%EC%9E%AC%EA%B7%80-%ED%95%A8%EC%88%98)
 
 ---
 
