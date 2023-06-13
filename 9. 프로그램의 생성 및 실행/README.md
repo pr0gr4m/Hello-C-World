@@ -42,7 +42,7 @@
 ### 메모리 계층 구조
 
 메모리 계층 구조(Memory Hierarchy)는 메모리의 종류를 속도, 용량, 성질 등에 의해 구분하여 필요에 따라 나누어 두는 것을 뜻한다. 일반적으로 다음과 같은 그림으로 나타내는데, 표현하고자 하는 바에 따라 구분 방식이 조금씩 달라서 내용은 조금씩 다를 수도 있다.  
-[memory_hierarchy](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/%EC%BB%B4%EA%B5%AC/memory.png?raw=true)  
+![memory_hierarchy](https://raw.githubusercontent.com/pr0gr4m/Hello-C-World/main/img/%EC%BB%B4%EA%B5%AC/memory.png)  
 
 메모리는 하드웨어적인 구현 방법, 크기, CPU와의 물리적인 거리에 따라 접근 시간이 달라진다. 예를 들어 RAM도 기억 장치를 어떻게 구성하는지에 따라 동작 방식이 달라져서 SRAM(Static Random Access Memory)와 DRAM(Dynamic Random Access Memory)로 나뉜다. SRAM은 접근 속도가 빠르지만 대용량으로 만들기 어렵고 많은 비용이 든다. DRAM은 상대적으로 접근 속도가 느리지만 비교적으로 대용량으로 만들기 쉽고 적은 비용이 든다. 따라서 일반적으로 CPU 캐시 메모리는 SRAM으로, 주기억장치는 DRAM으로 제작한다. (집필 중인 현재 많은 CPU 캐시는 SRAM으로, 주기억장치를 보통 DRAM의 일종인 SDRAM으로 제작하고 있다. 물론 모두 그런 것은 아니다.) 그리고 같은 기억 소자를 사용한다고 하더라도 크기가 작을수록 접근 속도를 빠르게 만들기 쉽다. 예를 들어 동네 놀이터 작은 모래 사장에 떨어진 500원을 찾는 것과 드넓은 사막에 떨어진 500원을 찾는다고 할 때 어느 쪽이 빠르게 찾기 쉬운지 생각하면 이해하기 쉽다. 따라서 일반적으로 속도에 최적화된 설계를 한 SRAM을 L1 캐시로 사용하고, 크기에 최적화된 설계를 한 SRAM을 L2와 L3 캐시에 사용하고는 한다.  
 
