@@ -245,7 +245,11 @@ extern int snprintf (char *__restrict __s, size_t __maxlen,
 
 ### 컴파일러
 
+gcc와 같은 C 컴파일러는 C언어 소스 코드를 읽어서 문법에 맞는지 검사하고 최적화를 수행하여 어셈블리 코드로 변환한다.  
+프로그램 생성의 핵심이며, 그 과정이 복잡하여 전문적인 연구 없이는 자세히 이해하기 힘든 내용이다. 해당 절에서는 보편적인 컴파일 과정에 대해 아주 간략하게 설명할 것인데, 완벽히 이해할 필요는 없으니 부담 없이 보기를 바란다.  
 
+다음 그림은 컴파일러의 범용적인 수행 단계를 나타낸다.  
+![compiler](https://raw.githubusercontent.com/pr0gr4m/Hello-C-World/main/img/%EC%BB%B4%EA%B5%AC/compiler.png)  
 
 ### 어셈블러
 
