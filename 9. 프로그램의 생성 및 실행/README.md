@@ -119,15 +119,133 @@ gcc-m68k-linux-gnu/focal 4:9.3.0-1ubuntu2 amd64
 ![compile](https://raw.githubusercontent.com/pr0gr4m/Hello-C-World/main/img/%EC%BB%B4%EA%B5%AC/compile.png)  
 
 각 요소들의 간략한 설명은 다음과 같다.  
-* 전처리기(preprocessor) : 입력한 데이터를 처리하여 다른 프로그램에 대한 입력으로 사용되는 출력물을 만들어내는 프로그램이다. C 전처리기의 경우 입력받은 소스 파일에 대해 ```#``` 으로 시작하는 전처리기 지시자들을 전처리 문법에 맞게 처리한 소스 파일을 만들어낸다.  
+* 전처리기(preprocessor) : 입력한 데이터를 처리하여 다른 프로그램에 대한 입력으로 사용되는 출력물을 만들어내는 프로그램이다. C 전처리기의 경우 입력받은 소스 파일에 대해 ```#``` 으로 시작하는 전처리 지시자들을 전처리 문법에 맞게 처리한 소스 파일을 만들어낸다.  
 * 컴파일러(compiler) : 특정한 프로그래밍 언어로 작성한 파일을 다른 프로그래밍 언어로 옮기는 번역 프로그램이다. C 컴파일러는 보통 입력 받은 C언어 소스 코드를 번역하여 어셈블리 소스 코드를 생성한다.  
 * 어셈블러(assembler) : 어셈블리 소스 코드를 기계어 형태의 오브젝트 코드로 번역하는 프로그램이다. 
     * 오브젝트 파일은 일반적으로 실행 가능한 파일을 만들기 위한 기계어 혹은 기계어에 준하는 이진 코드로 구성된 파일을 말한다. 리눅스에서 사용하는 오브젝트 파일의 종류로는 실행 가능한 파일, 재배치 가능 파일, 공유 오브젝트 파일 세 가지가 있다. 해당 어셈블러 처리 단계를 거친 오브젝트 파일은 재배치 가능 오브젝트 파일이며, 재배치 가능 오브젝트 파일을 모아서 실행 가능한 파일이나 공유 오브젝트 파일을 만들 수 있다.
 * 링커(linker) : 하나 이상의 오브젝트 파일을 모아서 단일 실행 파일이나 라이브러리 파일로 병합하는 프로그램이다. 하나 이상의 재배치 가능 오브젝트 파일을 링킹하여 실행 가능한 파일이나 공유 오브젝트 파일을 만든다.  
 
+각 단계를 직접 확인하기 위하여 다음과 같은 기본적인 예제를 준비하자.  
+
+```c
+// program.c
+#include <stdio.h>
+
+#define FIVE    5
+
+int main(void)
+{
+    int n = 2;
+    printf("n * FIVE = %d\n", n * FIVE);
+    return 0;
+}
+```  
+
+```#define FIVE    5``` 라인은 조금 생소하지만 우선 ```FIVE``` 라는 식별자가 오면 ```5``` 로 치환하는 매크로라고만 알아두면 충분하다. 예를 들어 ```n * FIVE```는 ```n * 5```로 변할 것이다.  
+그러면 이제 위 예제가 각 단계를 거치면서 어떻게 변화하는지 확인해보자.  
+
 ### 전처리기
 
+전처리 지시자는 ```#include ...```나 ```#define ...```와 같이 ```#``` 문자로 시작하는 지시문을 뜻한다. 전처리기는 C언어 소스 파일에서 이러한 지시문들을 치환하여 새로운 소스 파일을 만들어낸다.  
+gcc 툴체인에서 기본적으로 사용하는 C 전처리기는 cpp(C PreProcessor)이므로 다음과 같이 실행할 수 있다.  
+
+```bash
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ cpp program.c -o program.i
+```  
+
+그 결과로 만들어진 program.i 파일을 열어보면 다음과 같다.  
+
+```c# 1 "program.c"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 31 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 32 "<command-line>" 2
+# 1 "program.c"
+
+# 1 "/usr/include/stdio.h" 1 3 4
+# 27 "/usr/include/stdio.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
+# 33 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 3 4
+# 1 "/usr/include/features.h" 1 3 4
+# 461 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 1 3 4
+# 452 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 453 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/long-double.h" 1 3 4
+# 454 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 462 "/usr/include/features.h" 2 3 4
+# 485 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs-64.h" 1 3 4
+# 11 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 2 3 4
+# 486 "/usr/include/features.h" 2 3 4
+# 34 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 2 3 4
+# 28 "/usr/include/stdio.h" 2 3 4
+
+... 생략
+
+typedef unsigned char __u_char;
+typedef unsigned short int __u_short;
+typedef unsigned int __u_int;
+typedef unsigned long int __u_long;
+
+
+typedef signed char __int8_t;
+typedef unsigned char __uint8_t;
+typedef signed short int __int16_t;
+typedef unsigned short int __uint16_t;
+typedef signed int __int32_t;
+typedef unsigned int __uint32_t;
+
+typedef signed long int __int64_t;
+typedef unsigned long int __uint64_t;
+
+... 생략
+
+extern int fprintf (FILE *__restrict __stream,
+      const char *__restrict __format, ...);
+
+extern int printf (const char *__restrict __format, ...);
+
+extern int sprintf (char *__restrict __s,
+      const char *__restrict __format, ...) __attribute__ ((__nothrow__));
+
+... 생략
+
+# 6 "program.c"
+int main(void)
+{
+    int n = 2;
+    printf("n * FIVE = %d\n", n * 5);
+    return 0;
+}
+```  
+
+뭔지 모를 내용들을 넘어가다보면 ```printf``` 함수의 선언을 볼 수 있다. ```#include <stdio.h>``` 지시문이 치환되어 시스템 어딘가에 있던 ```stdio.h``` 파일의 내용이 삽입된 것이다.  
+정말인지 확인해보고 싶다면 터미널에 ```cat /usr/include/stdio.h```와 같이 파일 내용을 출력해볼 수도 있다. 하지만 해당 파일은 길기도 하고, 헤더 파일 내용조차도 이미 전처리가 되어 완전히 같게 보이지는 않으므로 다음과 같이 내용을 검색하는 정도로 확인해보자.  
+```bash
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ cat /usr/include/stdio.h | grep printf
+extern int fprintf (FILE *__restrict __stream,
+extern int printf (const char *__restrict __format, ...);
+extern int sprintf (char *__restrict __s,
+extern int vfprintf (FILE *__restrict __s, const char *__restrict __format,
+extern int vprintf (const char *__restrict __format, __gnuc_va_list __arg);
+extern int vsprintf (char *__restrict __s, const char *__restrict __format,
+extern int snprintf (char *__restrict __s, size_t __maxlen,
+...
+```  
+
+변경된 소스 파일에 있는 선언과 똑같은 프로토타입 모습을 볼 수 있다.  
+
+또한 main 함수를 보면 기존에 ```FIVE``` 라는 식별자가 있던 곳이 상수 5로 치환된 것을 볼 수 있다.  
+전처리기는 이렇게 기존 소스 파일에 있는 전처리 지시자들을 알맞게 처리하여 내용을 치환, 삽입, 삭제함으로써 새로운 소스 파일을 만들어낸다.  
+
 ### 컴파일러
+
+
 
 ### 어셈블러
 
