@@ -285,7 +285,174 @@ gcc와 같은 C 컴파일러는 C언어 소스 코드를 읽어서 문법에 맞
 
 이렇게 만들어진 중간 표현을 최종적으로 대상 아키텍처에 알맞는 어셈블리 코드로 번역하고 추가적인 최적화를 수행한다. 코드 생성에는 주로 ISA에 따라 어떠한 명령어를 사용할지 고르고, 적당한 레지스터를 골라서 할당하는 작업 등을 수행한다. 그리고 해당 아키텍처의 하드웨어적인 성질을 고려한 명령어 최적화를 수행한다. 그 외에도 중간 표현 최적화에 사용했던 기법과 유사한 기법들을 대상 코드에 알맞게 수행하기도 한다.  
 
-보편적으로 C언어를 위와 같은 작업들을 거쳐 어셈블리 코드로 번역하며, 이러한 과정을 컴파일이라고 한다. 사실 gcc의 경우 위 과정이 정확하게 맞아들지는 않는다. 
+보편적으로 C언어를 위와 같은 작업들을 거쳐 어셈블리 코드로 번역하며, 이러한 과정을 컴파일이라고 한다.  
+이 컴파일 과정은 크게 세 가지로 구분하기도 한다. 우선 중간 표현을 만들어내는 어휘 분석, 구문 분석, 의미 분석, 중간 코드 생성 단계를 프론트엔드(front-end)라고 한다. 그리고 중간 코드에 대해 분석과 최적화를 수행하는 단계를 미들엔드(middle-end)라고 하며, 중간 코드를 최종적인 대상 코드로 번역하는 단계를 백엔드(back-end)라고 한다.  
+
+그런데 gcc의 경우 이러한 보편적인 단계가 잘 맞아들지 않고 훨씬 복잡한 과정을 거친다. gcc의 컴파일 세부 단계를 확인하고 싶다면 옵션에 ```-fdump-tree-all```과 ```-fdump-rtl-all```을 사용하면 된다. 예를 들어 ```gcc -fdump-tree-all -fdump-rtl-all program.c```와 같이 컴파일하면 매 단계를 수행한 결과 파일을 확인할 수 있다. 이에 대한 자세한 내용은 GNU gcc의 Developer-Options 매뉴얼을 보면 확인할 수 있는데, 굉장히 복잡하기에 학습 과정에서 굳이 확인할 것을 권장하지는 않는다. (만약 실제로 위 명령어를 수행해서 너무 많은 파일이 생성되었다면 ```rm program.c.*``` 명령어로 정리하자.)  
+
+그럼에도 불구하고 굳이 컴파일 과정을 설명한 이유는 해당 내용을 알고 다른 컴파일러를 사용하면 학습에 지대한 효과를 볼 수 있기 때문이다. LLVM이라는 컴파일러 툴체인 프로젝트가 있는데, 해당 프로젝트에서 C 컴파일러 프론트엔드로 사용하는 clang이라는 툴이 있다. 언어나 컴파일러를 학습하는 단계에서는 오히려 gcc보다 더욱 선호되기도 한다. clang 또한 다양한 유닉스 기반 환경에서 지원하고 있으며, 해당 서적의 기본 환경인 WSL2 우분투에서도 사용할 수 있다. 해당 환경에 이미 내장되어 있겠지만, 혹시 모르니 터미널에서 다음 명령을 통해 clang을 설치하도록 하자.  
+
+```bash
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ sudo apt install clang -y
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+clang is already the newest version (1:10.0-50~exp1).
+0 upgraded, 0 newly installed, 0 to remove and 321 not upgraded.
+```  
+
+이미 설치되어 있기 때문에 별도의 설치 과정이 진행되지는 않았다. 그러면 clang의 다음 명령을 통해서 이번에 학습했던 구문 트리를 확인해보자.  
+
+```bash
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ clang -Xclang -ast-dump program.c
+TranslationUnitDecl 0x19db1b8 <<invalid sloc>> <invalid sloc>
+|-TypedefDecl 0x19dba50 <<invalid sloc>> <invalid sloc> implicit __int128_t '__int128'
+| `-BuiltinType 0x19db750 '__int128'
+... 생략
+`-FunctionDecl 0x1a865a0 <program.c:6:1, line:11:1> line:6:5 main 'int (void)'
+  `-CompoundStmt 0x1a868a0 <line:7:1, line:11:1>
+    |-DeclStmt 0x1a866e0 <line:8:5, col:14>
+    | `-VarDecl 0x1a86658 <col:5, col:13> col:9 used n 'int' cinit
+    |   `-IntegerLiteral 0x1a866c0 <col:13> 'int' 2
+    |-CallExpr 0x1a86810 <line:9:5, col:39> 'int'
+    | |-ImplicitCastExpr 0x1a867f8 <col:5> 'int (*)(const char *, ...)' <FunctionToPointerDecay>
+    | | `-DeclRefExpr 0x1a866f8 <col:5> 'int (const char *, ...)' Function 0x1a75cb0 'printf' 'int (const char *, ...)'
+    | |-ImplicitCastExpr 0x1a86858 <col:12> 'const char *' <NoOp>
+    | | `-ImplicitCastExpr 0x1a86840 <col:12> 'char *' <ArrayToPointerDecay>
+    | |   `-StringLiteral 0x1a86718 <col:12> 'char [15]' lvalue "n * FIVE = %d\n"
+    | `-BinaryOperator 0x1a86798 <col:31, line:4:17> 'int' '*'
+    |   |-ImplicitCastExpr 0x1a86780 <line:9:31> 'int' <LValueToRValue>
+    |   | `-DeclRefExpr 0x1a86740 <col:31> 'int' lvalue Var 0x1a86658 'n' 'int'
+    |   `-IntegerLiteral 0x1a86760 <line:4:17> 'int' 5
+    `-ReturnStmt 0x1a86890 <line:10:5, col:12>
+      `-IntegerLiteral 0x1a86870 <col:12> 'int' 0
+/usr/bin/ld: /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crt1.o: in function `_start':
+(.text+0x24): undefined reference to `main'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+```  
+
+전처리가 완료된 이후의 코드를 대상으로 분석하였기 때문에 상단에는 직접 작성하지 않은 코드에 대한 구문 트리가 보인다. 끝자락에 ````-FunctionDecl 0x1a865a0 <program.c:6:1, line:11:1> line:6:5 main 'int (void)'``` 부터가 우리가 작성했던 코드에 대한 구문 트리이다.  
+각 문장이 어떤 요소로 구성되는지, 데이터들의 타입과 값이 무엇인지 명확하게 확인할 수 있다. 학습 단계에서 구문 내역들에 대한 의문이 생긴다면 위와 같이 구문 트리를 직접 확인해보는 것도 좋은 방법이다.  
+
+gcc로 다시 돌아와서 기존에 전처리를 완료한 program.i 파일에 대해 컴파일을 수행해보자. gcc 커맨드로도 수행할 수 있지만, gcc 내에서 사용하는 순수 컴파일러인 cc1을 사용할 것이다.  
+
+```bash
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ /usr/lib/gcc/x86_64-linux-gnu/9/cc1 ./program.i -o program.s
+ main
+Analyzing compilation unit
+Performing interprocedural optimizations
+ <*free_lang_data> <visibility> <build_ssa_passes> <opt_local_passes> <remove_symbols> <targetclone> <free-fnsummary>Streaming LTO
+ <whole-program> <hsa> <fnsummary> <inline> <free-fnsummary> <single-use> <comdats>Assembling functions:
+ <materialize-all-clones> <simdclone> main
+Time variable                                   usr           sys          wall               GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)    1222 kB ( 74%)
+ phase opt and generate             :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)      58 kB (  4%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)      24 kB (  1%)
+ TOTAL                              :   0.00          0.00          0.01           1648 kB
+```  
+
+실행 결과로 만들어진 어셈블리 파일을 보면 다음과 같다.  
+
+```asm
+	.file	"program.i"
+	.text
+	.section	.rodata
+.LC0:
+	.string	"n * FIVE = %d\n"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	movl	$2, -4(%rbp)
+	movl	-4(%rbp), %edx
+	movl	%edx, %eax
+	sall	$2, %eax
+	addl	%edx, %eax
+	movl	%eax, %esi
+	leaq	.LC0(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movl	$0, %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"
+	.section	.note.GNU-stack,"",@progbits
+
+```  
+
+어셈블리 언어를 모른다면 이해하기 힘들지만 재밌는 부분을 볼 수 있다. 우리는 분명 2 * 5라는 작업을 수행했다. 그리고 곱하기를 수행하는 명령어는 ```mul```인데, 눈을 씻고 찾아봐도 해당 명령어는 없다. 어떻게 된 것일까? 중요한 라인 몇가지만 간략하게 해석해보겠다.  
+
+* ```movl	$2, -4(%rbp)``` : ```int n = 2;``` 에 해당하는 라인이다. $2가 상수 2를 뜻한다. 할당한 변수에 2를 대입한다.
+* ```movl	-4(%rbp), %edx``` : edx 라는 레지스터에 위 변수 값을 임시 저장한다.
+* ```movl	%edx, %eax``` : eax 라는 레지스터에 마찬가지로 위 변수 값을 임시 저장한다.
+* ```sall	$2, %eax``` : eax 레지스터에 좌측 쉬프트 연산을 수행했다. 즉, eax 레지스터에 ```2 << 2``` 의 값인 8이 저장된다.
+* ```addl	%edx, %eax``` : eax 레지스터에 edx 레지스터 값을 더했다. 즉, eax 레지스터에 ```8 + 2```의 값인 10이 저장된다.
+
+다시 말해서 ```n * 5```라는 작업을 ```n << 2 + n```라는 식으로 치환하여서 명령어의 효율을 도모한 것이다. 컴퓨터에 있어 쉬프트 연산이 곱하기 연산보다 훨씬 쉬운 연산이라는 것은 연산자 챕터에서 학습한 바가 있다.  
+
+그런데 이 마저도 더욱 효율적으로 수행할 수 있다. 현재 변수 n의 값을 어딘가에서 입력받지 않고 프로그램이 실행되면 고정적으로 2라는 값으로 초기화한다. 그렇다면 ```n * 5``` 라는 값도 항상 10으로 고정된 것이다. 따라서 컴파일 시간에 이러한 내용을 상수로 대체할 수 있는데, 이를 상수 전파(constant propagation)이라고 한다. 위 컴파일 단계에서 ```-O1``` 옵션을 추가하면 해당 내용을 확인할 수 있다.  
+
+```bash
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ /usr/lib/gcc/x86_64-linux-gnu/9/cc1 ./program.i -o program.s -O1
+ main
+Analyzing compilation unit
+Performing interprocedural optimizations
+ <*free_lang_data> <visibility> <build_ssa_passes> <opt_local_passes> <remove_symbols> <targetclone> <free-fnsummary>Streaming LTO
+ <whole-program> <profile_estimate> <hsa> <fnsummary> <inline> <pure-const> <free-fnsummary> <static-var> <single-use> <comdats>Assembling functions:
+ <materialize-all-clones> <simdclone> main
+Time variable                                   usr           sys          wall               GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)    1222 kB ( 74%)
+ phase opt and generate             :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)      65 kB (  4%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)      12 kB (  1%)
+ TOTAL                              :   0.00          0.00          0.01           1654 kB
+```  
+
+결과로 만들어진 어셈블리 파일은 다음과 같다.  
+
+```bash
+	.file	"program.i"
+	.text
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"n * FIVE = %d\n"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	$10, %esi
+	leaq	.LC0(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movl	$0, %eax
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"
+	.section	.note.GNU-stack,"",@progbits
+
+```  
+
+상수 2와 5는 흔적도 없이 사라지고 $10 만이 남은 것을 볼 수 있다.  
+컴파일 단계에서 위와 같이 번역과 최적화를 수행하는 것을 확인할 수 있다.  
 
 ### 어셈블러
 
