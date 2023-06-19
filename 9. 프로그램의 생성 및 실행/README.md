@@ -618,7 +618,33 @@ Disassembly of section .eh_frame:
 
 ### 링커
 
+링커(linker)는 하나 이상의 오브젝트 파일을 단일 실행 프로그램으로 병합하는 프로그램이다. 여태까지 우리는 하나의 프로그램을 작성하기 위해 하나의 소스 파일을 작성했다. 하지만 실제 대부분의 상용 프로그램을 개발할 때에는 소스 파일을 여러 개로 나누어 작성한다. 그렇게 작성한 소스 파일들을 각각 컴파일 한 후 생성한 오브젝트 파일들을 링크라는 과정을 통해 하나로 합쳐서 프로그램을 생성하는 것이다. 이 외에도 링커는 프로그램을 생성할 때 필요한 라이브러리 파일들을 병합하거나 연결하는 역할도 수행한다.  
 
+소스 파일을 나누고, 라이브러리 파일을 만들거나 사용하고, 링커를 사용하는 등의 작업은 매우 중요하므로 추후에 별도의 챕터에서 다시 알아볼 것이다. 여기에서는 이론적인 내용만 아주 간단히 다루고 넘어가도록 하자.    
+
+오브젝트 파일들은 각각 자신들의 섹션들을 가지고 있다. 링커는 여러 오브젝트들을 섹션별로 합치는 역할을 수행한다. 즉 text 섹션은 text 섹션들끼리, data 섹션은 data 섹션들끼리 병합한다.  
+이 때 링커는 심볼을 해석(Symbol Resolution)하고 섹션과 주소를 재배치(Relocation)하는 역할도 수행한다. 소스 코드를 여러 파일로 나누면 하나의 함수나 변수는 보통 한 곳에서만 정의되지만 선언은 여러 곳에 있을 수 있다. 예를 들어 ```add.c``` 에서 정의한 함수 ```void add(int a, int b) { return a + b; }``` 를 ```main.c``` 에서 ```void add(int, int);``` 라고 선언만 하여 사용할 수 있다. (물론 두 파일을 링킹해야 사용할 수 있다.) 이때 ```main.c``` 에서 ```add()``` 함수를 호출하면 실제로 해당 함수가 정의된 곳을 찾아가야 하는데, 링커가 함수가 정의된 섹션을 재배치하여 정렬함으로써 올바른 주소를 찾아갈 수 있도록 만들어준다. 이러한 과정에서 어떠한 심볼이 프로그램 내에서 정상적으로 정의되어 있는지를 검사하여 묶어주는(binding) 작업도 수행한다. 만약 같은 심볼의 변수나 함수가 중복하여 정의되어 있거나, 선언만 하고 정의가 되어 있지 않는 등 비정상적인 상태를 보인다면 링크 에러를 발생시킨다.  
+
+또한 링커는 라이브러리를 관리하고 사용할 수 있게도 해준다. 예를 들어 우리는 여태까지 ```stdio.h``` 헤더 파일을 삽입하는 것으로 ```printf``` 함수를 선언하여 사용했지만, 정작 몸체를 정의하지는 않았다. ```printf``` 함수의 몸체는 시스템 어딘가에 라이브러리 형태로 정의되어있다. 그러면 우리가 실제로 ```printf``` 함수를 호출할 때에는 실제 함수가 정의되어 있는 메모리 주소를 찾아가야 하는데, 링커가 이러한 연결을 할 수 있도록 만들어준다.  
+그런데 이러한 연결 작업을 당장 설명하기는 순서상 어려움이 있다. 또한 라이브러리에도 종류가 있는데, 종류따라 연결 방식도 달라진다. 이는 위에서 언급했던 별도 챕터에서 설명할 예정이다.  
+
+링커는 결국 이러한 작업들을 수행하여 실행 가능한 단일 프로그램을 생성해낸다. 우리가 여태까지 만들어낸 program.o 오브젝트 파일도 기계어로 구성된 파일이지만 링킹 작업을 수행하기 전에는 실제로 실행할 수 있는 프로그램이 아니다. 따라서 다음과 같이 링킹 명령을 통해 실행 파일을 만들어야 한다. 참고로 ```ld``` 명령을 사용해도 좋지만, gcc 툴체인 내에서 사용하는 ```collect2```를 사용할 것이다. 옵션이 굉장히 길기 때문에 아래 명령을 따라할 필요는 없다. (굳이 하고싶다면 말리지는 않겠다.)  
+
+```bash
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=program.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o program /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. program.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ ./program 
+n * FIVE = 10
+```  
+
+결과는 성공적으로 실행 파일을 만들어 실행했지만 링크 과정에서 과도하게 길고 긴 옵션을 필요로 한다. ```gcc``` 커맨드를 사용하면 이런 번거로운 옵션 없이 다음과 같이 간단하게 링킹을 수행할 수 있다. (gcc가 내부적으로 위의 옵션들을 잘 처리해준다.)  
+
+```bash
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ gcc -o program program.o
+pr0gr4m@DESKTOP-IRB9MN5:~/src$ ./program 
+n * FIVE = 10
+```  
+
+독자분들은 번거롭게 ```collect2```나 ```ld```를 사용하지 말고 ```gcc```를 사용하여 간편하게 링킹하고 실행해보기 바란다.  
 
 ## 프로그램의 실행 과정
 
