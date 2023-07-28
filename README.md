@@ -103,9 +103,18 @@
     * [컴퓨터 구조 찍어먹기](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B5%AC%EC%A1%B0-%EC%B0%8D%EC%96%B4%EB%A8%B9%EA%B8%B0)
         + [메모리 계층 구조](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B3%84%EC%B8%B5-%EA%B5%AC%EC%A1%B0)
         + [명령어 집합 구조](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%A7%91%ED%95%A9-%EA%B5%AC%EC%A1%B0)
+        + [N 비트 컴퓨팅](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#n-%EB%B9%84%ED%8A%B8-%EC%BB%B4%ED%93%A8%ED%8C%85)
+        + [엔디안](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EC%97%94%EB%94%94%EC%95%88)
     * [프로그램의 생성 과정](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95)
         + [전처리기](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0)
         + [컴파일러](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC)
+        + [어셈블러](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EC%96%B4%EC%85%88%EB%B8%94%EB%9F%AC)
+        + [링커](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EB%A7%81%EC%BB%A4)
+        + [정리](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EC%A0%95%EB%A6%AC)
+    * [프로그램 실행 과정](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98-%EC%8B%A4%ED%96%89-%EA%B3%BC%EC%A0%95)
+        + [누가 프로그램을 실행시키나](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EB%88%84%EA%B0%80-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%8B%A4%ED%96%89%EC%8B%9C%ED%82%A4%EB%82%98)
+        + [여러 개의 프로세스](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EC%97%AC%EB%9F%AC-%EA%B0%9C%EC%9D%98-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4)
+        + [가상 메모리](https://github.com/pr0gr4m/Hello-C-World/tree/main/9.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC)
 ---
 
 ## 참조(Reference)
