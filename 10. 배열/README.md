@@ -41,4 +41,12 @@ C언어에서 배열의 정의는 동일한 타입의 객체 여러 개를 연�
 type-specifier identifier[constant-expression];
 ```  
 
-타입 지정자(type-specifier)는 ```int```와 같이 배열의 요소를 표현할 타입을 지정하고, 식별자(identifier)는 ```arr```와 같이 배열의 이름을 지정하며, 상수식(constant-expression)은 ```4```와 같이 배열의 크기를 지정한다.  
+타입 지정자(type-specifier)는 ```int```와 같이 배열의 요소를 표현할 타입을 지정하고, 식별자(identifier)는 ```arr```와 같이 배열의 이름을 지정하며, 상수식(constant-expression)은 ```4```와 같이 배열의 크기를 지정한다. 결국 크기가 4인 ```int``` 타입의 배열 arr를 다음과 같이 선언할 수 있다.  
+
+```c
+int arr[4];
+```  
+
+이렇게 생성된 배열의 요소들은 가상 메모리 상에서 연속된 주소 공간을 할당받는다. ```int``` 타입의 크기가 4 byte인 시스템 상에서는 다음과 같이 16 byte를 할당하게 된다.  
+
+![basic](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98/basic.png?raw=true)  
