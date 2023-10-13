@@ -49,4 +49,4 @@ int arr[4];
 
 이렇게 생성된 배열의 요소들은 가상 메모리 상에서 연속된 주소 공간을 할당받는다. ```int``` 타입의 크기가 4 byte인 시스템 상에서는 다음과 같이 16 byte를 할당하게 된다.  
 
-![basic](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/%EB%B3%80%EC%88%98%EC%99%80%20%EC%83%81%EC%88%98/basic.png?raw=true)  
+![basic](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/%EB%B0%B0%EC%97%B4/basic.png?raw=true)  
