@@ -131,6 +131,21 @@ int arr[4] = { 1, 2, 0, 0, };
 
 참고로 용어를 위와 같이 사용하기로 정의된 것은 아니다. 표준에서 연산자의 이름을 array subscripting operator, indexed element와 같은 용어를 사용하기 때문에 유사하게 대응시킨 것이다.  
 
+다음은 ```int arr[4] = { 1, 2, 3, 4 };``` 와 같이 초기화 한 경우 각 요소를 시각화한 그림이다.  
+![basic](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/%EB%B0%B0%EC%97%B4/subscript.png?raw=true)  
+
+배열에 첨자 연산을 했을 때는 일반적인 변수와 동일하게 사용할 수 있다. 따라서 다음과 같이 lvalue로 사용이 가능하다.  
+
+```c  
+int arr[4];
+arr[0] = 1;
+arr[1] = 2;
+arr[2] = 3;
+arr[3] = 4;
+```  
+
+
+
 ### 배열 지정 초기화
 
 ### 배열 응용
