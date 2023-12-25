@@ -115,6 +115,14 @@
         + [누가 프로그램을 실행시키나](https://github.com/pr0gr4m/Hello-C-World/tree/main/09.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EB%88%84%EA%B0%80-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%8B%A4%ED%96%89%EC%8B%9C%ED%82%A4%EB%82%98)
         + [여러 개의 프로세스](https://github.com/pr0gr4m/Hello-C-World/tree/main/09.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EC%97%AC%EB%9F%AC-%EA%B0%9C%EC%9D%98-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4)
         + [가상 메모리](https://github.com/pr0gr4m/Hello-C-World/tree/main/09.%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%98%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%8B%A4%ED%96%89#%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC)
+- [배열](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EB%B0%B0%EC%97%B4)
+    * [일차원 배열](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EC%9D%BC%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4)
+        + [배열의 선언](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EB%B0%B0%EC%97%B4%EC%9D%98-%EC%84%A0%EC%96%B8)
+        + [배열의 초기화](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EB%B0%B0%EC%97%B4%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94)
+        + [배열 첨자](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EB%B0%B0%EC%97%B4-%EC%B2%A8%EC%9E%90)
+        + [배열 지정 초기화](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EB%B0%B0%EC%97%B4-%EC%A7%80%EC%A0%95-%EC%B4%88%EA%B8%B0%ED%99%94)
+        + [배열 응용](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EB%B0%B0%EC%97%B4-%EC%9D%91%EC%9A%A9)
+    * [다차원 배열](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4)
 ---
 
 ## 참조(Reference)
