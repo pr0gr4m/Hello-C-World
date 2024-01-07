@@ -122,7 +122,10 @@
         + [배열 첨자](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EB%B0%B0%EC%97%B4-%EC%B2%A8%EC%9E%90)
         + [배열 지정 초기화](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EB%B0%B0%EC%97%B4-%EC%A7%80%EC%A0%95-%EC%B4%88%EA%B8%B0%ED%99%94)
         + [배열 응용](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EB%B0%B0%EC%97%B4-%EC%9D%91%EC%9A%A9)
+        + [배열의 크기](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EB%B0%B0%EC%97%B4%EC%9D%98-%ED%81%AC%EA%B8%B0)
     * [다차원 배열](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4)
+        + [다차원 배열의 선언과 초기화](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4%EC%9D%98-%EC%84%A0%EC%96%B8%EA%B3%BC-%EC%B4%88%EA%B8%B0%ED%99%94)
+    * [가변 길이 배열](https://github.com/pr0gr4m/Hello-C-World/tree/main/10.%20%EB%B0%B0%EC%97%B4#%EA%B0%80%EB%B3%80-%EA%B8%B8%EC%9D%B4-%EB%B0%B0%EC%97%B4)
 ---
 
 ## 참조(Reference)
