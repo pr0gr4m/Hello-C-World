@@ -1,0 +1,13 @@
+[book]
+title = "Hello C World"
+description = "C언어 기본서 오픈 집필"
+language = "kr"
+multilingual = false
+src = "src"
+
+[output.html]
+no-section-label = true
+site-url = "/Hello-C-World/"
+git-repository-url = "https://github.com/pr0gr4m/Hello-C-World"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/pr0gr4m/Hello-C-World/edit/main/{path}"
