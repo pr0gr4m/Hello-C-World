@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="kr" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>C언어의 역사 - Hello C World</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="C언어 기본서 오픈 집필">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">01. C언어 소개</li><li class="chapter-item expanded "><a href="01-introduce-c/history.html" class="active">C언어의 역사</a></li><li class="chapter-item expanded "><a href="01-introduce-c/feature.html">C언어의 특징</a></li><li class="chapter-item expanded "><a href="01-introduce-c/setting.html">실습 환경 구축</a></li><li class="chapter-item expanded affix "><li class="part-title">02. C언어 시작하기</li><li class="chapter-item expanded "><a href="02-start-c/helloworld.html">Hello World</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Hello C World</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/pr0gr4m/Hello-C-World" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/pr0gr4m/Hello-C-World/edit/main/src/01-introduce-c/history.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="c언어의-역사"><a class="header" href="#c언어의-역사">C언어의 역사</a></h1>
+<p>해당 챕터에서는 C언어의 역사에 대해 다소 자세히 설명할 예정입니다. 혹시 독자분들은 역사 과목을 좋아하시나요? 필자는 개인적으로 학창 시절 역사 과목이 정말 지루하고 싫었습니다. 관심도 흥미도 없는 분야에 대해 억지로 외워야 하는 것이 성향에 안 맞았던 것 같습니다. 마찬가지로, C언어의 역사에 큰 관심이 없는 독자분들에게 해당 챕터는 다소 지루한 이야기일 수 있습니다. 심지어, 해당 내용을 모른다고 해서 C언어를 사용하는데는 별 문제가 되지 않습니다. 따라서 당장 본격적인 C언어 프로그래밍을 하고 싶으신 독자분들은 이번 챕터를 뛰어 넘으셔도 괜찮습니다. 잠깐, 그렇다면 굳이 몰라도 되는 역사 이야기를 왜 굳이 상세하게 하려고 할까요? C언어를 깊이 공부시다보면 '언어를 대체 왜 이렇게 만들었지?' 라는 의문이 들 때가 있습니다. 또, 독자분들이 보기에는 그다지 중요해보이지 않은 내용인데 이놈의 필자는 왜 이렇게 복잡하게 설명하고 있지 하는 의문이 드는 내용이 있을 것입니다. C언어의 역사를 알게 되면 그 의문들에 대해 어느정도 해답을 유추할 수 있게 되기에 다소 지루할 수 있는 내용이지만 조금 자세하게 이야기 해보려 합니다. (그리고 잘 알고 있으면, 어디 가서 아는 척 할 기회가 있을 겁니다.) </p>
+<p>C언어의 역사는 미국의 벨 연구소에서 시작됩니다. 벨 연구소는 수많은 노벨상 수상자를 배출해낸 세계 최고의 과학 연구소 중 하나였습니다. 당시 벨 연구소에는 약 3천명의 고급 연구원과 2만명의 개발 그룹원이 있었는데, 이들의 연구 자금을 AT&amp;T라는 기업에서 투자해줬습니다. AT&amp;T는 미국 대부분의 지역에 전화 서비스를 제공한 세계 최대 통신 기업이었습니다. 따라서 벨 연구소는 자연스레 통신 시스템과 컴퓨터 과학에 대한 연구도 선구하게 되었습니다. 이 벨 연구소의 컴퓨팅 과학 연구 센터에는 (비록 합류 날짜는 제각각이지만) 더글러스 매클로이, 켄 톰슨, 데니스 리치와 같은 전설적인 프로그래머들이 근무했습니다.</p>
+<p>1964년 MIT에서는 CTSS라는 운영체제를 개선하여 멀틱스(Multiplexed Information and Computing Service)라는 운영체제를 만들기 시작했습니다. 1966년부터 벨 연구소의 위 멤버들은 멀틱스 프로젝트에 참여했습니다. 하지만 프로젝트를 진행하다보니 벨 연구소는 멀틱스가 범용적으로 사용하기 좋은 운영체제가 되지 못할 것이라 생각하여 1969년 프로젝트에서 빠져나오게 됩니다. 프로젝트에서 빠져나온 켄 톰슨은 여전히 운영체제 개발을 하고 싶었고, 벨 연구소에서 당시 잘 사용하지 않고 있던 DEC사의 PDP-7 머신을 발견했습니다. 켄 톰슨은 PDP-7에서 동작할 운영체제를 개발하기 시작했고, 그의 아내가 아들을 데리고 3주간 시댁에 방문하러 갔을 때 시기는 무르익었습니다. 온전히 개발에 매진할 수 있게 된 켄 톰슨은 첫 주에 코드 작성을 위한 편집기를, 둘째 주에는 소스 코드(당시 어셈블리)를 기계어로 변환하기 위한 어셈블러를, 마지막 주에는 커널 오버레이를 개발했으며, 이 커널 오버레이를 운영체제라고 불렀습니다. 이렇게 1969년에 탄생한 운영체제는 멀틱스(MULTICS)의 이름을 오마쥬하여 유닉(UNICS)으로 지어졌으며, 이 이름이 어찌저찌 변형되어(UNICS의 발음이 내시라는 단어의 eunuch와 같아서 변형되었다는 이야기가 있습니다) 유닉스(UNIX)가 되었습니다.</p>
+<p>켄 톰슨과 데니스 리치는 성공적으로 연구원들의 인기 몰이를 해낸 PDP-7 유닉스 시스템을 개선하기 위하여 PDP-11을 구하고, 유닉스를 새로운 시스템에 맞춰 변환했습니다. 그렇게 만들어진 PDP-11에서 동작하는 유닉스 버전이 유닉스 제 1판이 되었습니다. 그런데 켄 톰슨은 이렇게 유닉스를 개선하는 과정에서 어셈블리가 아닌 새로운 고수준 언어의 필요성을 느꼈습니다. 먼저 포트란이라는 언어로 작성하는 것을 시도하였으나 메모리 문제로 실패하고, BCPL이라는 언어를 직접 단순화하여 B라는 언어를 만들어 시도했습니다. 하지만, B언어는 인터프리팅 방식으로 동작하여 너무 느렸고, PDP-11 머신의 다양한 크기의 데이터 타입 기능을 이용할 수 없었습니다. (어셈블리, 데이터 타입, 인터프리팅과 같은 용어는 모른다면 건너 뛰셔도 괜찮습니다.) 기존 PDP-7 머신의 메모리는 워드 단위(PDP-7에서는 18비트)로 설계되었는데, PDP-11은 바이트(8비트)로 설계되어 단일 바이트, 2바이트 정수, 4바이트/8바이트 부동 소수점 수의 데이터 타입을 제공했습니다. 즉, B언어는 워드 기반 컴퓨터에 적합하고 이러한 바이트 기반 컴퓨터에는 적합하지 않은 언어였습니다.</p>
+<p>1971년에 데니스 리치는 이 문제를 해결하기 위하여 B언어를 개선하기 시작했습니다. 위에서 이야기한 데이터 타입을 추가했고, 인터프리팅 방식이 아닌 컴파일 방식을 채택했습니다. 이 언어는 New B라는 의미의 NB가 되었고, 켄 톰슨은 NB를 이용하기 시작했습니다. NB에 필요에 따라 구조체(struct)와 같은 다양한 타입과 포인터 등이 추가 되어 결국 C언어가 되었습니다. 유닉스 버전 2에는 C언어 컴파일러가 포함되었고, 1973년 마침내 켄 톰슨과 데니스 리치는 C언어로 다시 작성된 유닉스 버전 4를 만들어 PDP-11에서 동작하는데 성공했습니다.</p>
+<p>그렇게 탄생한 C언어는 1978년 브라이언 커닝핸과 데니스 리치가 집필한 The C Programming Language(이후 TCPL)와 함께 널리 퍼져나가기 시작했습니다. C언어는 유닉스 뿐만 아니라, IBM PC 플랫폼, 메인 프레임 컴퓨터, 마이크로 컴퓨터 등 다양한 환경에서 사용되기 시작했습니다. 여러 환경에서 C언어를 사용하기 위한 필요에 따라 점차 새로운 C언어 컴파일러도 만들어졌는데, 당시 개발자들은 기본적으로 TCPL의 내용을 기반으로 컴파일러를 개발했습니다. 하지만 안타깝게도, TCPL은 C언어의 모든 기능에 대해 명확한 문법적, 의미론적인 정의를 내리지는 않았습니다. 또한, TCPL이 발간된 이후로도 C언어는 일부 기능들이 추가되거나 제거되는 등 개선이 있었습니다. 이런 상황에서 TCPL에 의존한 컴파일러 개발자들은 일부 모호한 내용에 대해 그들의 재량으로 (주로 그들이 사용하는 플랫폼에 유리한 방향으로) 컴파일러를 구현했습니다. 그러다보니 똑같은 C언어 소스 코드를 A환경에서 a컴파일러로 컴파일한 결과와 B환경에서 b컴파일러로 컴파일한 결과가 달라지는 결과를 초래했습니다. (똑같은 웹 페이지인데 IE 브라우저로 접속했을 때와 크롬 브라우저로 접속했을 때 모습이 미묘하게 다른 모습을 볼 수 있는데, 그와 유사한 맥락으로 이해하시면 됩니다.) 이러한 상황을 해결하기 위하여 ANSI(American National Standards Institute)에서 C언어의 표준을 제정합니다.</p>
+<p>ANSI는 논의를 시작한 후로 여러 개선을 통해 1989년 첫 번째 표준안 ANSI X3.159-1989 &quot;Programming Language C&quot;를 완성했고, 이는 1990년 ISO(International Organization for Standardization)로부터 승인받아 ISO/IEC 9899:1990라는 이름으로 정식 표준안이 되었습니다. 이 표준안은 보통 년도를 따서 C89 라고 불립니다. 이후 컴파일러들은 이 표준안을 기반으로 개발 및 수정되었으며, C언어 개발자들은 이 표준안에 맞춰서 소스 코드를 작성하면 표준안을 지켜 만든 컴파일러 아래에서는 모두 같은 결과를 보장받을 수 있게 되었습니다.</p>
+<p>첫 번째 표준안이 제정된 후로 C언어의 기능은 한동안 크게 변화하지 않았습니다. 비록 1995년에 새로운 C 표준안(ISO/IEC 9899/AMD 1:1995)이 출간되긴 하였지만, 국제 언어와 문자 집합에 대한 지원 추가가 주된 내용이었습니다. 그러다 1990년 후반에 눈에 띄는 기능 변화가 생긴 새로운 표준안 ISO/IEC 9899:1999가 제정되었습니다. 이 표준은 C99라고 불리며, IEEE 754 부동 소수점 지원, 인라인 함수, 한 줄 주석 등의 내용이 포함되었습니다. 이 중 많은 부분이 C언어로부터 파생된 언어인 C++에서 생긴 기능을 도입한 것입니다.</p>
+<p>참고로 C++언어는 비야네 스트로스트룹이 C언어에다가 Class라는 기능을 추가하여 Simula언어와 같은 객체 지향 프로그래밍을 가능하게 만든 언어입니다. &quot;C with Classes&quot;라는 의미로 시작하여 처음에 C++언어는 C언어의 Superset으로 동작하였습니다. 쉽게 말해서, 이 때는 C언어로 작성한 코드를 C 컴파일러가 아니라 C++ 컴파일러로 컴파일해도 원하는 프로그램을 만들 수 있었습니다. 하지만 시간이 지나면서 C++는 굉장히 빠른 속도로 발전하였고, C99 등 새로운 표준이 제정되면서 C++은 C의 완벽한 Superset이 아니게 되었습니다. 거기에 더해 현대 C++는 Modern이라고 불리는 다양한 기능을 장착하여 객체 지향을 넘어 다양한 메타 프로그래밍을 구현하는 언어가 되었습니다.</p>
+<p>다시 C언어로 돌아와서, C99의 제정 이후 대부분의 컴파일러들은 해당 표준에 맞춰 컴파일러를 업데이트 했습니다. 그런데 마이크로소프트사의 Visual C++는 기존에 C++언어가 C언어의 Superset이었기 때문에 C++ 언어에 맞춰서 컴파일러를 개발했고, C++에 새로운 기능이 생기면 그에 맞춰서 컴파일러를 업데이트 했습니다. 그런데 위에 언급했던 것과 같이 C99부터는 C++가 더이상 Superset이 아니게 되었고, VC++은 이미 C++에 맞춰 발전을 해왔기 때문에 새로운 C 표준에 맞춰 변화하기가 어렵게 되었습니다. 그 외에도, VC++은 ANSI C 표준에서 정의하지 않은 내용들을 여럿 구현하여 더 이상 표준 C언어를 지원하는 컴파일러라고 부르기 어렵게 되었습니다.</p>
+<p>이후로 다시 C언어는 큰 변화 없는 평온한 나날을 보내다가, 다시 몇 가지 기능들이 추가 및 제거된 C11 표준이 제정됩니다. 재밌는 점은 부록(Annex K)에 기존 Visual C++에서 확장 기능으로 제공하던 메모리 경계 검사 함수(Bound-checking interfaces)들이 선택적 구현 사항으로 추가되었습니다. (주로 scanf_s와 같이 접미사로 _s가 붙은 함수들입니다. 선택적 구현이기에 대부분 컴파일러가 이를 지원하지 않습니다.) 가끔 이 내용을 보고 Visual C++도 이제 다시 C언어 표준을 지원하는 컴파일러라는 논란이 생겼는데, 사실 그렇지는 않습니다. 애초에 Visual C++은 restrict 키워드와 같이 새로운 C 표준 문법을 지원하지 못하게 되어 표준 컴파일러가 아니게 된 것이며, Visual C++가 제공하는 메모리 경계 검사 함수와 표준에서 정의한 메모리 경계 검사 함수는 일대일로 대응하지 않습니다. (예를 들어, Visual C++은 C11에서 정의한 set_constraint_handler_s 함수를 제공하지 않으며 C11는 Visual C++가 제공하는 vasprintf 함수를 정의하지 않습니다.) 이러한 점들 때문에 Visual C++는 최고의 C++ 도구 중 하나지만, C언어 도구로는 적합하지 않다라는 논란이 생기고는 했습니다. 그런데 Visual Studio 2022 버전부터는 이러한 점들을 개선하여 Visual C++ 또한 표준 C 문법들을 지원하기 시작했습니다. (정확히는 2019의 특정 버전부터지만, IDE상에는 여전히 버그가 생기고는 합니다.) 결국 Visual C++은 돌고 돌아 표준 C언어를 지원하는 컴파일러가 되긴 하였으나, 그 과정이 순탄치 않았던 것도 재밌는 이야기거리 입니다.</p>
+<p>C11 이후 C11에서 몇 가지 오류가 수정된 C17(C18)이 제정되었으나 큰 변화는 없었고, 최근에 제정된 C23에서 몇 가지 내용들이 수정되었습니다. K&amp;R식 함수 선언 및 정의나 2의 보수가 아닌 signed integer 표현 등이 제거되었고, 몇 가지 함수와 기능들이 deprecated 되었습니다. 또한, 이진 상수, 빈 이니셜라이저, constexpr, 속성(attributes) 등의 기능이 추가되거나 true와 false가 키워드로 등록되었습니다.</p>
+<p>C언어는 이렇게 크게 K&amp;R C와 ANSI C로 나뉘며, ANSI C는 표준이 제정된 년도에 따라 C89, C99, C11, C17, C23와 같이 불립니다. 일부 사람들은 ANSI C는 C89을 나타내고 이후 표준부터는 C99, C11와 같이 표기하기도 하지만, 이 책에서는 ANSI C라고 하면 표준 전부를 가리키며 특정 버전을 나타낼 때는 C89, C99와 같이 표기하기로 하겠습니다. 현대의 C 프로그램은 대부분 C89, C99, C11을 사용하고 있습니다. 특히 현대에 C언어를 가장 잘 활용하고 성공한 프로젝트로 리눅스(Linux)가 있습니다. 리눅스는 리누즈 토발즈가 개발한 유닉스 계열(UNIX-like) 운영체제입니다. 많은 분들이 이용하는 안드로이드가 이 리눅스를 기반으로 만든 운영체제이며, 대부분의 IoT 기기들도 이 리눅스를 기반으로 만들어지고 있습니다. 뿐만 아니라 대다수의 서버 컴퓨터부터 슈퍼 컴퓨터들도 리눅스를 기반으로 동작하여, 사실 세계 운영체제 점유율 순위는 윈도우가 아닌 리눅스가 압도적인 1위를 기록하고 있습니다. 이 리눅스의 대부분은 C89을 기반으로 작성되어 있으며, 최근 리누즈 토발즈는 리눅스를 C11로 변환하겠다고 발표했습니다. C언어를 공부하려는 사람이라면 마땅히 ANSI C를 기반으로 학습해야 하며, 해당 서적 또한 ANSI C를 기반으로 작성할 예정입니다.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="01-introduce-c/feature.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next prefetch" href="01-introduce-c/feature.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
