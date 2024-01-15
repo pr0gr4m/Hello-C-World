@@ -280,7 +280,7 @@ int * const p = &a;
 
 1번은 ```const int *p = &a;```와 완전히 같은 선언이므로, 참조하는 타입이 const int인 것이다. 따라서 간접 접근 시 내용을 수정할 수 없다. 2번은 위에서 언급한 것과 같이 참조 타입은 int 지만, 포인터가 const이다. 따라서 가리키는 대상을 바꿀 수는 없지만, 간접 접근 시 내용을 수정할 수 있다.  
 
-![const](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/%ED%8F%AC%EC%9D%B8%ED%84%B0/reference.png?raw=true)  
+![const](https://github.com/pr0gr4m/Hello-C-World/blob/main/img/%ED%8F%AC%EC%9D%B8%ED%84%B0/const.png?raw=true)  
 
 그러면 ```*``` 구두점의 왼쪽과 오른쪽에 const 한정자가 모두 붙으면 어떻게 될까? 이 경우엔 참조 타입도, 포인터도 모두 읽기 전용이 된다. 즉, 간접 접근하여 내용을 수정할 수도 없고, 가리키는 내용도 수정할 수 없다.  
 
