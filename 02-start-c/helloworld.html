@@ -186,7 +186,7 @@
 
 int main(void)
 {
-    printf(&quot;Hello, World!\n&quot;);
+    printf("Hello, World!\n");
     return 0;
 }
 </code></pre>
@@ -219,14 +219,14 @@ pr0gr4m@DESKTOP-IRB9MN5:~/src$ make hello
 cc     hello.c   -o hello
 hello.c: In function ‘main’:
 hello.c:5:29: error: expected ‘;’ before ‘return’
-    5 |     printf(&quot;Hello, World!\n&quot;)
+    5 |     printf("Hello, World!\n")
       |                             ^
       |                             ;
     6 |     return 0
       |     ~~~~~~                   
 make: *** [&lt;builtin&gt;: hello] Error 1
 </code></pre>
-<p>오류 1번은 <code>&lt;stdio.h&gt;</code> 대신에 visual studio에 심취한 나머지 <code>&lt;studio.h&gt;</code> 라는 오탈자를 입력한 경우이고, 오류 2번은 <code>printf(&quot;Hello, World!\n&quot;)</code>나 <code>return 0</code> 다음에 세미콜론 문자 <code>;</code>를 누락한 경우입니다. 그 외에도 정상적인 결과가 나오지 않는 경우는 99.99%의 확률로 오탈자를 입력한 것이니 내용을 유심히 확인하시면 원하는 결과를 볼 수 있을 겁니다.</p>
+<p>오류 1번은 <code>&lt;stdio.h&gt;</code> 대신에 visual studio에 심취한 나머지 <code>&lt;studio.h&gt;</code> 라는 오탈자를 입력한 경우이고, 오류 2번은 <code>printf("Hello, World!\n")</code>나 <code>return 0</code> 다음에 세미콜론 문자 <code>;</code>를 누락한 경우입니다. 그 외에도 정상적인 결과가 나오지 않는 경우는 99.99%의 확률로 오탈자를 입력한 것이니 내용을 유심히 확인하시면 원하는 결과를 볼 수 있을 겁니다.</p>
 
                     </main>
 
